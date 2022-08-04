@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editText_phoneRegister"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_edit_text"
+                android:drawableLeft="@drawable/ic_baseline_local_phone"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/hint_phone_number"
+                android:inputType="phone"
+
+
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/editText_rePasswordRegister"
+                app:layout_constraintStart_toStartOf="@+id/editText_rePasswordRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editText_rePasswordRegister" />
+
+            <EditText
+                android:id="@+id/editText_PasswordRegister"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_edit_text"
+                android:drawableLeft="@drawable/ic_baseline_lock"
+                android:drawableRight="@drawable/ic_baseline_visibility_off"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/editText_nameRegister"
+                app:layout_constraintStart_toStartOf="@+id/editText_nameRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editText_nameRegister" />
+
+            <EditText
+                android:id="@+id/editText_rePasswordRegister"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_edit_text"
+                android:drawableLeft="@drawable/ic_baseline_lock"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/hint_re_type_password"
+                android:inputType="textPassword"
+
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/editText_PasswordRegister"
+                app:layout_constraintStart_toStartOf="@+id/editText_PasswordRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editText_PasswordRegister" />
+
+            <EditText
+                android:id="@+id/editText_nameRegister"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:autofillHints=""
+                android:background="@drawable/rounded_edit_text"
+                android:drawableStart="@drawable/ic_baseline_person"
+
+                android:drawableLeft="@drawable/ic_baseline_person"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/hint_full_name"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/editText_emailRegister"
+                app:layout_constraintStart_toStartOf="@+id/editText_emailRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editText_emailRegister"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/editText_emailRegister"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:autofillHints=""
+                android:background="@drawable/rounded_edit_text"
+                android:drawableStart="@drawable/ic_baseline_email"
+                android:drawableLeft="@drawable/ic_baseline_email"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/hintEmail"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+            <Button
+                android:id="@+id/button_registerRegister"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/roboto_bold"
+                android:letterSpacing="-0.01"
+                android:text="@string/Register"
+                android:textSize="16sp"
+                app:backgroundTint="@color/yellow"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_news"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_black"
+                android:text="@string/Register"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:buttonTint="@color/yellow"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/checkbox_i_agree_with_terms_of_use"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="@+id/editText_phoneRegister"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editText_phoneRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editText_phoneRegister" />
+
+            <CheckBox
+                android:id="@+id/checkBox_privacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/yellow"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/checkbox_i_agree_with_privacy_policy"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox_terms"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/checkBox_terms"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_terms" />
+
+            <CheckBox
+                android:id="@+id/checkBox_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/yellow"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/checkbox_send_me_news_and_promotions_on_email"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox_privacy"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/checkBox_privacy"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_privacy" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

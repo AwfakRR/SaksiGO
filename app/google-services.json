@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981580749747",
+    "project_id": "saksigo-30792",
+    "storage_bucket": "saksigo-30792.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981580749747:android:4c9be3c4559b6991e089c6",
+        "android_client_info": {
+          "package_name": "com.development.saksigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981580749747-cs7dtvdb2ph31n8ko0mpc17goahniidb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFZ-lrKWV9dmOHzSFnv1aVcTDbplrsl34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981580749747-cs7dtvdb2ph31n8ko0mpc17goahniidb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
