@@ -186,10 +186,10 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
             BalanceFragment balanceFragment = new BalanceFragment();
             transaction.replace(R.id.container, balanceFragment);
             toolbar.setTitle("Balance");
-            Log.i("tag","masukBlanace");
+
         }
         else if(position == POS_LOGOUT){
-            Log.i("tag","masuk");
+
             editor.putString("loginAgain", "false");
             editor.commit();
             startActivity(intent);
