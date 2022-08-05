@@ -10,8 +10,8 @@
         <item>Profile</item>
         <item>Chat</item>
         <item>Balance</item>
-<!--        <item/>-->
-        <item>Log out </item>
+        <item></item>
+        <item>Log out</item>
     </string-array>
 
     <array name="id_activityScreenIcon">
@@ -23,7 +23,7 @@
         <item>@drawable/ic_baseline_profile</item>
         <item>@drawable/ic_baseline_chat</item>
         <item>@drawable/ic_baseline_monetization</item>
-<!--        <item>0</item>-->
+        <item>0</item>
         <item>@drawable/ic_baseline_power</item>
     </array>
 

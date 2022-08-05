@@ -10,11 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.WindowManager;
 
 import com.development.saksigo.Adapter.DrawerAdapter;
 import com.development.saksigo.Adapter.DrawerItem;
@@ -41,7 +45,7 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private static final int POS_PROFILE = 4;
     private static final int POS_CHAT = 5;
     private static final int POS_BALANCE = 6;
-    private static final int POS_LOGOUT = 7;
+    private static final int POS_LOGOUT = 8;
 
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -49,13 +53,20 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private SlidingRootNav slidingRootNav;
 
     Toolbar toolbar;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Intent intent;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
+
+        intent = new Intent(this, MainActivity.class);
+        sharedPreferences = this.getSharedPreferences("LoginActivity", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         //Actionbar style
 //        getSupportActionBar().hide();
@@ -175,8 +186,14 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
             BalanceFragment balanceFragment = new BalanceFragment();
             transaction.replace(R.id.container, balanceFragment);
             toolbar.setTitle("Balance");
+            Log.i("tag","masukBlanace");
         }
         else if(position == POS_LOGOUT){
+            Log.i("tag","masuk");
+            editor.putString("loginAgain", "false");
+            editor.commit();
+            startActivity(intent);
+
             finish();
         }
 
