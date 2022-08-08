@@ -30,4 +30,14 @@
     <string name="reset_password">Reset Password</string>
     <string name="reset_password_desc">Please enter your registered email below, we will send you a link to reset your password.</string>
 
+<!--    How to register-->
+    <string name="Registration">Registration</string>
+    <string name="Validation">Validation</string>
+    <string name="Cases_Page">Cases Page</string>
+    <string name="Registration_desc">Key partners at SaksiGO need to register their firm and their law case specialty, to allow the customer to see their intricate trades.</string>
+    <string name="Validation_desc">After successful registration, the validation process will begin on our side immediately. Verified accounts may access all of SaksiGO’s features.</string>
+    <string name="Cases_desc">Before key partners can start helping their clients on the platform, they are needed to set their cases first. Our robust communication and management system will allow key partners to help their clients efficiently.</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
