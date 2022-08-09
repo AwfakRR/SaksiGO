@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/drawable/circle_loading_background.xml" value="0.1215" />
+        <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/drawable/rectangle.xml" value="0.236" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/activity_home.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/activity_introduction.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/activity_landing.xml" value="0.264" />
@@ -11,9 +12,12 @@
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/activity_reset_password.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/activity_verification.xml" value="0.4" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/home_fragment.xml" value="0.24320652173913043" />
+        <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/profession_complete_registration_25_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/profession_complete_registration_fragment.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/profession_fragment.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/profession_registration25_fragment.xml" value="0.25" />
         <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/profession_registration_50_fragment.xml" value="0.24320652173913043" />
+        <entry key="..\:/Users/ficky/StudioProjects/SaksiGO/app/src/main/res/layout/rectangle.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_undraw_personal_file.xml" value="0.152" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_introduction.xml" value="0.1" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_login.xml" value="0.23052536231884058" />
@@ -28,7 +32,6 @@
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/home_fragment.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/how_to_register_fragment.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/item_options.xml" value="0.23052536231884058" />
-        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_fragment.xml" value="0.33" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_fragment.xml" value="0.25" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/slider_layout.xml" value="0.23052536231884058" />
       </map>
