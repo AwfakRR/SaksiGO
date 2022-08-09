@@ -9,7 +9,7 @@
     <string name="Continue">Continue</string>
     <string name="Welcome">Welcome!</string>
     <string name="Registered">Already Registered?</string>
-    <string name="AccountNot">Doesnt Have an Account?</string>
+    <string name="AccountNot">Don\'t Have an Account?</string>
     <string name="Login">LOGIN</string>
     <string name="Register">REGISTER</string>
     <string name="hintEmail">email</string>
@@ -17,18 +17,18 @@
     <string name="hint_re_type_password">re-type password</string>
     <string name="hint_password">password</string>
     <string name="hint_phone_number">phone number</string>
-    <string name="checkbox_i_agree_with_terms_of_use">I Agree with Terms of Use</string>
-    <string name="checkbox_i_agree_with_privacy_policy">I Agree with Privacy Policy</string>
-    <string name="checkbox_send_me_news_and_promotions_on_email">Send me news and promotions on email</string>
+    <string name="checkbox_i_agree_with_terms_of_use">I Agree with the Terms of Use</string>
+    <string name="checkbox_i_agree_with_privacy_policy">I Agree with the Privacy Policy</string>
+    <string name="checkbox_send_me_news_and_promotions_on_email">Send me news and promotions via email</string>
     <string name="verification">VERIFICATION</string>
-    <string name="verification_desc">We have send you a verification link to the registered email address. Please check your email.</string>
+    <string name="verification_desc">We have sent you a verification link to the registered email address. Please check your email.</string>
     <string name="verification_code">verification code</string>
     <string name="verify">OK</string>
     <string name="see_here">See Here</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="reset_password">Reset Password</string>
-    <string name="reset_password_desc">Please enter your registered email below, we will send you a link to reset your password.</string>
+    <string name="reset_password_desc">Please enter your email below, we will send you a link to reset your password.</string>
 
     <!--    How to register-->
     <string name="Registration">Registration</string>
