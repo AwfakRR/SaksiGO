@@ -1,6 +1,7 @@
 package com.development.saksigo.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.development.saksigo.Adapter.SliderAdapterHowTo;
+import com.development.saksigo.ProfessionRegistration;
 import com.development.saksigo.R;
-import com.development.saksigo.SliderAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class ProfessionFragment extends Fragment {
@@ -47,6 +48,7 @@ public class ProfessionFragment extends Fragment {
 
         btnContinue = root.findViewById(R.id.button_continueHowTo);
 
+        Intent intent = new Intent(context, ProfessionRegistration.class);
 
 
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +68,7 @@ public class ProfessionFragment extends Fragment {
                 }else if(pageNumber < 2 && viewPager.getCurrentItem() < 2){
                     btnContinue.setText("CONTINUE");
                 }else if(btnContinue.getText()=="CONFIRM"){
-
+                    context.startActivity(intent);
 
                 }
 

@@ -58,6 +58,7 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
     Intent intent;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +68,8 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
         intent = new Intent(this, MainActivity.class);
         sharedPreferences = this.getSharedPreferences("LoginActivity", MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+
 
         //Actionbar style
 //        getSupportActionBar().hide();
@@ -153,6 +156,7 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         if(position == POS_HOME){
+
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.container, homeFragment);
             toolbar.setTitle("Home");

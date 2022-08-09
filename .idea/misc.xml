@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_baseline_lock.xml" value="0.152" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_baseline_monetization.xml" value="0.152" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_baseline_person.xml" value="0.152" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_undraw_personal_file.xml" value="0.152" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_home.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_introduction.xml" value="0.1" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_login.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_profession_registration.xml" value="0.1453125" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_register.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_reset_password.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/activity_verification.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/balance_fragment.xml" value="0.23052536231884058" />
@@ -18,6 +24,8 @@
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/how_to_register_fragment.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/item_options.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_registration25_fragment.xml" value="0.5" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_registration_fragment.xml" value="0.33" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/slider_layout.xml" value="0.23052536231884058" />
       </map>
     </option>
