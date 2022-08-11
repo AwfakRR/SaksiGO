@@ -95,10 +95,8 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="300dp"
         android:layout_height="48dp"
-
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edit_text"
-
         android:ems="10"
 
         android:hint="Input your first name.."
