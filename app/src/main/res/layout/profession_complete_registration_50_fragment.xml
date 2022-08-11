@@ -264,8 +264,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="965dp"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_begin="920dp"/>
 
     <TextView
         android:id="@+id/textView35"
@@ -303,7 +302,7 @@
                 android:layout_marginTop="64dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/KTP1" />
+                app:srcCompat="@drawable/ktp_hand" />
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -314,7 +313,7 @@
                 android:layout_marginTop="64dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/KTP2" />
+                app:srcCompat="@drawable/ktp_face" />
 
             <TextView
                 android:id="@+id/textView36"
@@ -384,6 +383,7 @@
         android:gravity="center"
         android:text="File must be in .pdf, .png, or .jpg and under 10MB."
         android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView40"
         app:layout_constraintStart_toStartOf="@+id/textView40"
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
