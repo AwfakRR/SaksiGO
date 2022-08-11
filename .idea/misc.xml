@@ -10,7 +10,6 @@
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_baseline_process.xml" value="0.1" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_baseline_visibility_off.xml" value="0.1" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_undraw_personal_file.xml" value="0.152" />
-        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/ic_undraw_well_done.xml" value="0.1" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/rounded_edit_text.xml" value="0.109" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/rounded_yellow_box.xml" value="0.109" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/drawable/selected_dot.xml" value="0.1" />
@@ -31,9 +30,9 @@
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/how_to_register_fragment.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/item_options.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/law_process_fragment.xml" value="0.26811594202898553" />
-        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_100_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_100_fragment.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_25_fragment.xml" value="0.33" />
-        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_50_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_50_fragment.xml" value="0.22" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_75_fragment.xml" value="0.25" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_complete_registration_fragment.xml" value="0.336144578313253" />
         <entry key="..\:/Users/hendy/AndroidStudioProjects/SaksiGOGithub/app/src/main/res/layout/profession_fragment.xml" value="0.25" />
