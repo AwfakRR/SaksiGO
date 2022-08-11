@@ -1,11 +1,18 @@
 package com.development.saksigo.Adapter;
 
+import android.graphics.BlendMode;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 
 import com.development.saksigo.R;
 
@@ -33,13 +40,14 @@ public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
         return new ViewHolder(v);
     }
 
+
     @Override
     public void bindViewHolder(ViewHolder holder) {
         holder.title.setText(title);
         holder.icon.setImageDrawable(icon);
 
         holder.title.setTextColor(isChecked ? selectedItemTextTint : normalItemTextTint);
-        holder.icon.setColorFilter(isChecked ? selectedItemIconTint : normalItemIconTint);
+        holder.icon.setColorFilter(isChecked ? Color.parseColor("#FFA806") : normalItemIconTint);
     }
 
     public SimpleItem withSelectedIconTint(int SelectedItemIconTint){

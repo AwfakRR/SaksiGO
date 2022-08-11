@@ -22,13 +22,12 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_black"
-        android:text="Profile as Legal Advocate"
+        android:text="Profile as Legal Services"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,51 +35,62 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Advocate Type"
+        android:text="Legal Services Type"
         android:textColor="@color/blue"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView26"
         app:layout_constraintStart_toStartOf="@+id/textView26"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="299dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
         app:layout_constraintStart_toStartOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView27"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27">
+
+        <Spinner
+            android:id="@+id/spinner_legalServices"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+
+
+            android:spinnerMode="dropdown"
+
+            tools:ignore="SpeakableTextPresentCheck" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/textView28"
-        android:layout_width="126dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="About You"
         android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/spinner1"
-        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editText_aboutYouProfession"
         android:layout_width="300dp"
         android:layout_height="120dp"
-        android:autofillHints=""
+
         android:background="@drawable/rounded_edit_text"
-        android:drawablePadding="10dp"
+
         android:ems="10"
         android:hint="@string/describe_the_services_that_you_could_provide_as_a_legal_advocate_and_your_background_as_a_legal_advocate"
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:gravity="top"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
         app:layout_constraintStart_toStartOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView28"
         tools:ignore="TextContrastCheck" />
@@ -89,19 +99,21 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Introduction Video (not mandatory)"
+        android:gravity="center_horizontal"
+        android:text="Introduction Video \n(not mandatory)"
+        android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_aboutYouProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_aboutYouProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_aboutYouProfession" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_videoLinkProfession"
         android:layout_width="300dp"
         android:layout_height="52dp"
-        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="@drawable/rounded_edit_text"
         android:drawablePadding="10dp"
@@ -110,17 +122,17 @@
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView29"
         app:layout_constraintStart_toStartOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView29"
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_saveProfession25"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="-0.01"
         android:text="Save and Continue"
@@ -128,8 +140,10 @@
         android:textSize="16sp"
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_videoLinkProfession"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
         tools:targetApi="lollipop" />
 

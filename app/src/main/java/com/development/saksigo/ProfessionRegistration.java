@@ -5,11 +5,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.development.saksigo.Fragment.HomeFragment;
 import com.development.saksigo.ProfessionFeature.RegistrationFragment;
 
 public class ProfessionRegistration extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +30,9 @@ public class ProfessionRegistration extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
+
+
     }
+
+
 }
