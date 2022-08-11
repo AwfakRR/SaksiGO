@@ -100,7 +100,7 @@
         android:ems="10"
 
         android:hint="Input your first name.."
-        android:inputType="number"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
@@ -129,7 +129,7 @@
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="Input your last name.."
-        android:inputType="number"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView30"
         app:layout_constraintHorizontal_bias="0.502"
@@ -278,9 +278,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="300dp"
+        android:layout_width="340dp"
         android:layout_height="300dp"
-        android:fillviewport="true"
         app:cardCornerRadius="15dp"
         app:cardElevation="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView35"
@@ -360,14 +359,14 @@
 
     <TextView
         android:id="@+id/textView40"
-        android:layout_width="420dp"
+        android:layout_width="380dp"
         android:layout_height="61dp"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center"
         android:text="Upload a photo of your National ID Card for verification (driver licenses or passports will not be accepted)."
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="@+id/cardView"
@@ -389,7 +388,6 @@
         android:id="@+id/cardView2"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:fillviewport="true"
         app:cardCornerRadius="15dp"
         app:cardElevation="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView41"
@@ -477,11 +475,96 @@
         tools:targetApi="lollipop" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="324dp"
-        tools:layout_editor_absoluteY="3572dp" />
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Current Address"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:buttonTint="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Matches National ID"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView43"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView43"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="300dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Input your current address.."
+        android:inputType="textMultiLine"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Postal Code"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName7"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:hint="Input your current postal code.."
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/textView44"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:letterSpacing="-0.01"
+        android:text="Save and Continue"
+        android:textColor="@color/yellow"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+        tools:targetApi="lollipop" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
