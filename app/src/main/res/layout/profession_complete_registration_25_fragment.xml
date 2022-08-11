@@ -57,10 +57,7 @@
             android:id="@+id/spinner_Gender"
             android:layout_width="300dp"
             android:layout_height="48dp"
-
-
             android:spinnerMode="dropdown"
-
             tools:ignore="SpeakableTextPresentCheck" />
     </FrameLayout>
 
