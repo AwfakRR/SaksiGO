@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView27">
 
         <Spinner
-            android:id="@+id/spinner_legalServices"
+            android:id="@+id/spinner_Gender"
             android:layout_width="300dp"
             android:layout_height="48dp"
 
