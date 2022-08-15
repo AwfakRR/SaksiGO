@@ -105,4 +105,12 @@
         app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:srcCompat="@drawable/ic_baseline_check"
         tools:layout_editor_absoluteY="211dp" />
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services Completion"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="251dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

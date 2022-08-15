@@ -214,7 +214,7 @@
 
     <TextView
         android:id="@+id/textView54"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Characters above are randomized for security reasons."
@@ -222,15 +222,26 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="289dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="92dp"
-        android:text="Save and Continue"
-        android:textColor="#000000"
-        app:backgroundTint="#FFFFFF"
+        android:id="@+id/button_save0"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+
+        android:fontFamily="@font/roboto_bold"
+
+        android:letterSpacing="-0.01"
+        android:text="save and continue"
+
+        android:textColor="@color/yellow"
+        android:textSize="16sp"
+
+        app:backgroundTint="@color/white"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/textView54"
+        tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+        tools:targetApi="lollipop" />
 </androidx.constraintlayout.widget.ConstraintLayout>

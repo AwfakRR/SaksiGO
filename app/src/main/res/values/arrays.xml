@@ -43,7 +43,7 @@
 
     </string-array>
 
-    <string-array name="id_gender">
+        <string-array name="id_gender">
 
         <item>Select your gender..</item>
         <item>Male</item>
@@ -86,5 +86,6 @@
         <item>Nusa Tenggara Barat</item>
         <item>Nusa Tenggara Timur</item>
     </string-array>
+
 
 </resources>
