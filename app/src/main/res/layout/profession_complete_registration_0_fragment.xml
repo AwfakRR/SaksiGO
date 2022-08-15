@@ -23,7 +23,7 @@
 
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/textView_fullnameProfession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -41,10 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A.K.A Nickname"
-        app:layout_constraintEnd_toEndOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="@+id/textView_fullnameProfession"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView42"
-        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+        app:layout_constraintStart_toStartOf="@+id/textView_fullnameProfession"
+        app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
 
     <TextView
         android:id="@+id/textView46"
