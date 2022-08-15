@@ -51,7 +51,6 @@
     </string-array>
 
     <string-array name="id_province">
-
         <item>Select your province..</item>
         <item>DKI Jakarta</item>
         <item>Jawa Barat</item>
@@ -62,16 +61,30 @@
         <item>Sumatra Utara</item>
         <item>Sumatra Selatan</item>
         <item>Sumatra Barat</item>
+        <item>Bali</item>
         <item>Aceh</item>
         <item>Riau</item>
+        <item>Kepulauan Riau</item>
         <item>Lampung</item>
         <item>Papua</item>
+        <item>Papua Barat</item>
         <item>Kepulauan Bangka Belitung</item>
         <item>Bengkulu</item>
         <item>Kalimantan Barat</item>
         <item>Kalimantan Tengah</item>
         <item>Kalimantan Timur</item>
         <item>Kalimantan Selatan</item>
+        <item>Jambi</item>
+        <item>Sulawesi Utara</item>
+        <item>Sulawesi Barat</item>
+        <item>Sulawesi Tengah</item>
+        <item>Sulawesi Selatan</item>
+        <item>Sulawesi Tenggara</item>
+        <item>Maluku</item>
+        <item>Maluku Utara</item>
+        <item>Gorontalo</item>
+        <item>Nusa Tenggara Barat</item>
+        <item>Nusa Tenggara Timur</item>
     </string-array>
 
 
