@@ -40,4 +40,17 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Tap the image above to change your profile picture."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView_profilePhotoEdit"
+        app:layout_constraintStart_toStartOf="@+id/circleImageView_profilePhotoEdit"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView_profilePhotoEdit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

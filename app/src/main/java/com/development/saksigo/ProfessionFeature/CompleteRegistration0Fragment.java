@@ -31,36 +31,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CompleteRegistration0Fragment extends Fragment {
 
-    private DatabaseReference databaseReference;
-    private FirebaseAuth mAuth;
-    private Uri imageUri;
-    private String myUri = "";
-    private StorageTask uploadTask;
-    private StorageReference storageProfilePicsRef;
+
 
     CircleImageView circleImageViewProfilePic;
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            imageUri = result.getUri();
-
-            circleImageViewProfilePic.setImageURI(imageUri);
-        }
-
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_0_fragment, container, false);
-
-
-
-        mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("KeyPartner");
-        storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner");
 
         circleImageViewProfilePic = root.findViewById(R.id.circleImageView_profilePhoto);
 
@@ -71,8 +49,6 @@ public class CompleteRegistration0Fragment extends Fragment {
             public void onClick(View view) {
 
                 startActivity(intent);
-//                CropImage.activity().setAspectRatio(1,1).start(getActivity());
-
 
             }
         });

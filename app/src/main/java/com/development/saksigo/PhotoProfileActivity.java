@@ -30,7 +30,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private StorageReference storageProfilePicsRef;
 
 
-    Button buttonSavePicture;
+    Button buttonSavePicture, button;
     CircleImageView circleImageViewProfilePic;
 
     @Override
@@ -51,7 +51,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo_profile);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blue)));
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("Change Picture");
         getSupportActionBar().setElevation(0);
 
         mAuth = FirebaseAuth.getInstance();
