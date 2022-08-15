@@ -50,4 +50,28 @@
         <item>Female</item>
     </string-array>
 
+    <string-array name="id_province">
+
+        <item>Select your province..</item>
+        <item>DKI Jakarta</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+        <item>Jawa Timur</item>
+        <item>Banten</item>
+        <item>Yogyakarta</item>
+        <item>Sumatra Utara</item>
+        <item>Sumatra Selatan</item>
+        <item>Sumatra Barat</item>
+        <item>Aceh</item>
+        <item>Riau</item>
+        <item>Lampung</item>
+        <item>Papua</item>
+        <item>Kepulauan Bangka Belitung</item>
+        <item>Bengkulu</item>
+        <item>Kalimantan Barat</item>
+        <item>Kalimantan Tengah</item>
+        <item>Kalimantan Timur</item>
+        <item>Kalimantan Selatan</item>
+    </string-array>
+
 </resources>
