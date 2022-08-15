@@ -11,29 +11,29 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.development.saksigo.R;
 
-public class CompleteRegistration50Fragment extends Fragment {
+public class CompleteRegistration75Fragment extends Fragment {
 
-    Button buttonSaveAndContinue50;
+    Button buttonSave75;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_75_fragment, container, false);
 
-
-
-        buttonSaveAndContinue50 = root.findViewById(R.id.button_save50);
+        buttonSave75 = root.findViewById(R.id.button_save75);
 
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
+        CompleteRegistration100Fragment completeRegistration100Fragment = new CompleteRegistration100Fragment();
 
-
-        buttonSaveAndContinue50.setOnClickListener(new View.OnClickListener() {
+        buttonSave75.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
+
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration100Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
                 fragmentTransaction.commit();
+
             }
         });
+
 
         return root;
     }
