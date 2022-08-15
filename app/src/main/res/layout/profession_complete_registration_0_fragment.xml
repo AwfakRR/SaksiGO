@@ -190,12 +190,13 @@
         android:id="@+id/textView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Password"
         android:textColor="#0C0000"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="662dp" />
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
