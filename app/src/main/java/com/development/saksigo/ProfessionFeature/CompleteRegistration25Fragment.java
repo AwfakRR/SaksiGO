@@ -31,7 +31,7 @@ public class CompleteRegistration25Fragment extends Fragment {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration50Fragment completeRegistration50Fragment = new CompleteRegistration50Fragment();
 
-        buttonSaveContinue = (Button) root.findViewById(R.id.button_saveProfession25);
+        buttonSaveContinue = (Button) root.findViewById(R.id.button_save25);
         buttonSaveContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

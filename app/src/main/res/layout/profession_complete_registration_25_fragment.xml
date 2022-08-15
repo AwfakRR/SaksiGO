@@ -125,7 +125,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button_saveProfession25"
+        android:id="@+id/button_save25"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

@@ -460,7 +460,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_save75"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -486,10 +486,10 @@
         android:text="Current Address"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/button_save75"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/button_save75"
+        app:layout_constraintTop_toBottomOf="@+id/button_save75" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -552,10 +552,11 @@
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_save50"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="-0.01"
         android:text="Save and Continue"
@@ -563,6 +564,7 @@
         android:textSize="16sp"
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
