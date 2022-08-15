@@ -64,11 +64,14 @@ public class CompleteRegistration0Fragment extends Fragment {
 
         circleImageViewProfilePic = root.findViewById(R.id.circleImageView_profilePhoto);
 
+        Intent intent = new Intent(container.getContext(), PhotoProfileActivity.class);
+
         circleImageViewProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                CropImage.activity().setAspectRatio(1,1).start(getActivity());
+                startActivity(intent);
+//                CropImage.activity().setAspectRatio(1,1).start(getActivity());
 
 
             }
