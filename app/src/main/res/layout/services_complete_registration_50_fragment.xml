@@ -69,6 +69,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
+        android:gravity="top"
         android:hint="Describe the services that you can offer..."
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
