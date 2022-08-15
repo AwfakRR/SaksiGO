@@ -43,7 +43,7 @@
 
     </string-array>
 
-    <string-array name="id_gender">
+        <string-array name="id_gender">
 
         <item>Select your gender..</item>
         <item>Male</item>
@@ -73,5 +73,6 @@
         <item>Kalimantan Timur</item>
         <item>Kalimantan Selatan</item>
     </string-array>
+
 
 </resources>
