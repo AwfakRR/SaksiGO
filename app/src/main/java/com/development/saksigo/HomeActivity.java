@@ -78,7 +78,6 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
-
         setSupportActionBar(toolbar);
 
 
@@ -200,7 +199,7 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
             editor.commit();
             startActivity(intent);
 
-            finish();
+//            finish();
         }
 
         slidingRootNav.closeMenu();

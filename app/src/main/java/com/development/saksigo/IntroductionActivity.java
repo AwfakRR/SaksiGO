@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
+
 public class IntroductionActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
@@ -49,6 +50,7 @@ public class IntroductionActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 pageNumber = viewPager.getCurrentItem();
                 if(pageNumber<2){
                     pageNumber++;

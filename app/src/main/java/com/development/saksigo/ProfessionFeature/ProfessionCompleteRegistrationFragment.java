@@ -59,8 +59,8 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
         textViewPercent.setText("25%");
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-        CompleteRegistration25Fragment completeRegistration25Fragment = new CompleteRegistration25Fragment();
-        fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration25Fragment);
+        CompleteRegistration0Fragment completeRegistration0Fragment = new CompleteRegistration0Fragment();
+        fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration0Fragment);
         fragmentTransaction.addToBackStack("professionRegistration");
         fragmentTransaction.commit();
 
