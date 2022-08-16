@@ -42,7 +42,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private StorageReference storageProfilePicsRef;
 
 
-    Button buttonSavePicture, button;
+    Button buttonSavePicture;
     CircleImageView circleImageViewProfilePic;
 
     @Override
@@ -100,8 +100,8 @@ public class PhotoProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_profile);
@@ -111,11 +111,13 @@ public class PhotoProfileActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
 
         mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("KeyPartner");
+        databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner");
 
         circleImageViewProfilePic = findViewById(R.id.circleImageView_profilePhotoEdit);
         buttonSavePicture = findViewById(R.id.button_savePic);
+
+        getUserinfo();
 
         buttonSavePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +133,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
             }
         });
 
-        getUserinfo();
+
 
 
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,10 +48,11 @@ public class CompleteRegistration0Fragment extends Fragment {
 
 
 
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_0_fragment, container, false);
         mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+        databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
         circleImageViewProfilePic = root.findViewById(R.id.circleImageView_profilePhoto);
         textViewFullname = root.findViewById(R.id.textView_fullnameProfession);
 
@@ -66,6 +68,7 @@ public class CompleteRegistration0Fragment extends Fragment {
 
                 startActivity(intent);
 
+
             }
         });
 
@@ -79,11 +82,12 @@ public class CompleteRegistration0Fragment extends Fragment {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
                     String name = dataSnapshot.child("fullname").getValue().toString();
 
+
                     textViewFullname.setText(name);
 
                     if(dataSnapshot.hasChild("image")){
                         String image = dataSnapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profileImageView);
+                        Picasso.get().load(image).into(circleImageViewProfilePic);
                     }
 
 
