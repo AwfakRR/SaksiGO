@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editText_emailProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -73,12 +73,12 @@
         android:text="Phone number"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName8"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName8"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_emailProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_emailProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_emailProfession" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/editText_phoneProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -92,44 +92,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="291dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:buttonTint="@color/white"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Receive notifications through SMS"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName9"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
-
     <TextView
         android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Date of Birth"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox2"
-        app:layout_constraintStart_toStartOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_phoneProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_phoneProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_phoneProfession" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editText_DOB"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint=" Date of Birth"
         android:inputType="date"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:drawableRight="@drawable/ic_baseline_date_range"
         app:layout_constraintEnd_toEndOf="@+id/textView48"
         app:layout_constraintStart_toStartOf="@+id/textView48"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -143,33 +130,26 @@
         android:text="Province"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_DOB"
+        app:layout_constraintStart_toStartOf="@+id/editText_DOB"
+        app:layout_constraintTop_toBottomOf="@+id/editText_DOB" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edit_text"
         app:layout_constraintEnd_toEndOf="@+id/textView50"
         app:layout_constraintStart_toStartOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/textView50">
 
-
+        <Spinner
+            android:id="@+id/spinner_Province"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="SpeakableTextPresentCheck" />
     </FrameLayout>
-
-    <Spinner
-        android:id="@+id/spinner_Province"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="@+id/textView50"
-        app:layout_constraintStart_toStartOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/textView50"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView52"
@@ -178,9 +158,9 @@
         android:layout_marginTop="8dp"
         android:text="Age must be above 18."
         android:textColor="#FF0000"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_DOB"
+        app:layout_constraintStart_toStartOf="@+id/editText_DOB"
+        app:layout_constraintTop_toBottomOf="@+id/editText_DOB" />
 
     <TextView
         android:id="@+id/textView53"
@@ -196,11 +176,15 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editText_passwordProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:drawableRight="@drawable/ic_baseline_visibility_off"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="  *********"
         android:inputType="textPassword"
@@ -215,9 +199,9 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Characters above are randomized for security reasons."
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_passwordProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_passwordProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_passwordProfession" />
 
     <Button
         android:id="@+id/button_save0"
@@ -237,9 +221,10 @@
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editText_passwordProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_passwordProfession"
         app:layout_constraintTop_toBottomOf="@+id/textView54"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
         tools:targetApi="lollipop" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

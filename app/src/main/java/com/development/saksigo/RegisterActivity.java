@@ -177,7 +177,7 @@ public class RegisterActivity extends AppCompatActivity {
                 stringCheckboxNews = String.valueOf(checkBoxNews.isChecked());
 
                 if(checkEmail()){
-                    editTextEmail.setError("Email must contain ‘@’ and placed properly.");
+                    editTextEmail.setError("Email must contain ‘@’ and be placed properly.");
                     editTextEmail.requestFocus();
                     return;
                 }
@@ -201,7 +201,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 if(!Pattern.compile("[0-9]").matcher(password).find() || !Pattern.compile("[A-Z]").matcher(password).find() || !Pattern.compile("[a-z]").matcher(password).find()){
-                    editTextPassword.setError("Password must contain at least 1 digit, 1 uppercase letter and 1 lowercase letter.");
+                    editTextPassword.setError("Password must contain at least 1 number, 1 uppercase letter and 1 lowercase letter.");
                     editTextPassword.requestFocus();
                     return;
                 }
