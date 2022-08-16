@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText_nationalId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -86,13 +86,13 @@
         android:text=" First Name"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editText_nationalId"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/editText_nationalId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nationalId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editText_firstNameId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -116,13 +116,13 @@
         android:text="Last Name"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/editText_firstNameId"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/editText_firstNameId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_firstNameId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_lastNameId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -146,16 +146,16 @@
         android:text="Gender"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_lastNameId"
+        app:layout_constraintStart_toStartOf="@+id/editText_lastNameId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastNameId" />
 
     <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         app:layout_constraintEnd_toEndOf="@+id/textView31"
         app:layout_constraintStart_toStartOf="@+id/textView31"
         app:layout_constraintTop_toBottomOf="@+id/textView31">
@@ -186,7 +186,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editText_addressId"
         android:layout_width="300dp"
         android:layout_height="113dp"
         android:layout_marginTop="8dp"
@@ -211,13 +211,13 @@
         android:text="Postal Code"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+        app:layout_constraintEnd_toEndOf="@+id/editText_addressId"
         app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintStart_toStartOf="@+id/editText_addressId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_addressId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editText_postalId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"

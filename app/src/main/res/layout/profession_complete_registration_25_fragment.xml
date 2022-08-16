@@ -48,13 +48,13 @@
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         app:layout_constraintEnd_toEndOf="@+id/textView27"
         app:layout_constraintStart_toStartOf="@+id/textView27"
         app:layout_constraintTop_toBottomOf="@+id/textView27">
 
         <Spinner
-            android:id="@+id/spinner_Gender"
+            android:id="@+id/spinner_LegalServices"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:spinnerMode="dropdown"

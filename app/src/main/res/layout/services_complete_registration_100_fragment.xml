@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView73" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText_nationalId"
         android:layout_width="299dp"
         android:layout_height="144dp"
         android:layout_marginTop="8dp"
@@ -59,10 +59,10 @@
         android:text="Starting Price"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editText_nationalId"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/editText_nationalId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nationalId" />
 
     <EditText
         android:id="@+id/editTextTextPersonName1"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editText_firstNameId"
         android:layout_width="222dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
@@ -108,11 +108,11 @@
         android:text="Job rough completion time (in days)"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/editText_firstNameId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_firstNameId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_lastNameId"
         android:layout_width="80dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
@@ -137,8 +137,8 @@
         android:textSize="16sp"
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/editText_lastNameId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastNameId"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
         tools:targetApi="lollipop" />
 

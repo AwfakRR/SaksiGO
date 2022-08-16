@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView70" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText_nationalId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -69,13 +69,13 @@
         android:text="Step 2:"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editText_nationalId"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/editText_nationalId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nationalId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editText_firstNameId"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -115,8 +115,8 @@
         android:text="Add Step"
         android:textColor="@color/yellow"
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/editText_firstNameId"
         app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/editText_firstNameId"
+        app:layout_constraintTop_toBottomOf="@+id/editText_firstNameId" />
 </androidx.constraintlayout.widget.ConstraintLayout>
