@@ -120,7 +120,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         buttonSavePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                uploadProfileImage();
             }
         });
 
