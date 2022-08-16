@@ -37,28 +37,17 @@
         app:layout_constraintTop_toBottomOf="@+id/circleImageView_profilePhoto" />
 
     <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A.K.A Nickname"
-        app:layout_constraintEnd_toEndOf="@+id/textView_fullnameProfession"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView_fullnameProfession"
-        app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
-
-    <TextView
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Email"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        app:layout_constraintEnd_toEndOf="@+id/textView_fullnameProfession"
+        app:layout_constraintStart_toStartOf="@+id/textView_fullnameProfession"
+        app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
 
     <EditText
         android:id="@+id/editTextTextPersonName8"
@@ -71,7 +60,6 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView46"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView46"
         app:layout_constraintTop_toBottomOf="@+id/textView46"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
@@ -86,7 +74,6 @@
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName8"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName8"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
 
@@ -101,16 +88,15 @@
         android:inputType="phone"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView47"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView47"
         app:layout_constraintTop_toBottomOf="@+id/textView47"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:buttonTint="@color/white"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -119,7 +105,6 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName9"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName9"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
 
@@ -133,7 +118,6 @@
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/checkBox2"
-        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="@+id/checkBox2"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
@@ -147,7 +131,6 @@
         android:hint=" Date of Birth"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="@+id/textView48"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="@+id/textView48"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
@@ -161,7 +144,6 @@
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextDate2"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
@@ -172,7 +154,6 @@
         android:layout_marginTop="8dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView50"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/textView50">
 
@@ -186,7 +167,6 @@
         android:layout_marginTop="8dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/textView50"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/textView50"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -199,7 +179,6 @@
         android:text="Age must be above 18."
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="@+id/editTextDate2"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
@@ -212,6 +191,7 @@
         android:text="Password"
         android:textColor="#0C0000"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
@@ -225,7 +205,6 @@
         android:hint="  *********"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/textView53"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView53"
         app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
@@ -234,7 +213,9 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="Characters above are randomized for security reasons."
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
