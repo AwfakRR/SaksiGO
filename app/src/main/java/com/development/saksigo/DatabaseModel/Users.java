@@ -2,25 +2,18 @@ package com.development.saksigo.DatabaseModel;
 
 public class Users {
 
-    public String email, fullname, phoneNumber, image, termsOpt, privacyOpt, newsOpt;
+    public String email, fullname, phoneNumber, termsOpt, privacyOpt, newsOpt;
 
-    public Users(String email, String fullname, String phoneNumber, String image, String termsOpt, String privacyOpt, String newsOpt) {
+    public Users(String email, String fullname, String phoneNumber, String termsOpt, String privacyOpt, String newsOpt) {
         this.email = email;
         this.fullname = fullname;
         this.phoneNumber = phoneNumber;
-        this.image = image;
         this.termsOpt = termsOpt;
         this.privacyOpt = privacyOpt;
         this.newsOpt = newsOpt;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public String getEmail() {
         return email;

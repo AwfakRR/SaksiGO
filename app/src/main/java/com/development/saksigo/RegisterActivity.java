@@ -47,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
     RelativeLayout relativeLayoutProgress;
     ConstraintLayout constraintLayoutRegister;
     LoadingDialog loadingDialog;
-    String stringCheckboxTerms, stringCheckboxPrivacy, stringCheckboxNews, image = "";
+    String stringCheckboxTerms, stringCheckboxPrivacy, stringCheckboxNews;
 
 
     @Override
@@ -235,7 +235,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-                            Users user = new Users(email, fullname, phoneNumber, image, stringCheckboxTerms, stringCheckboxPrivacy, stringCheckboxNews);
+                            Users user = new Users(email, fullname, phoneNumber, stringCheckboxTerms, stringCheckboxPrivacy, stringCheckboxNews);
 
                             FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("KeyPartner")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
