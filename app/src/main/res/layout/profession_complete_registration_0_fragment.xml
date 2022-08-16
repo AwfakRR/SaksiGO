@@ -37,28 +37,15 @@
         app:layout_constraintTop_toBottomOf="@+id/circleImageView_profilePhoto" />
 
     <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A.K.A Nickname"
-        app:layout_constraintEnd_toEndOf="@+id/textView_fullnameProfession"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView_fullnameProfession"
-        app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
-
-    <TextView
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Email"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="270dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName8"
@@ -133,7 +120,6 @@
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/checkBox2"
-        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="@+id/checkBox2"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
@@ -147,7 +133,6 @@
         android:hint=" Date of Birth"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="@+id/textView48"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="@+id/textView48"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
@@ -161,7 +146,6 @@
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextDate2"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
@@ -199,7 +183,6 @@
         android:text="Age must be above 18."
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="@+id/editTextDate2"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
