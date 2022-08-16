@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_fullnameProfession" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editText_emailProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -73,12 +73,12 @@
         android:text="Phone number"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName8"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName8"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_emailProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_emailProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_emailProfession" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/editText_phoneProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -104,9 +104,9 @@
         android:text="Receive notifications through SMS"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName9"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_phoneProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_phoneProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_phoneProfession" />
 
     <TextView
         android:id="@+id/textView48"
@@ -122,14 +122,16 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editText_DOB"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint=" Date of Birth"
         android:inputType="date"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView48"
         app:layout_constraintStart_toStartOf="@+id/textView48"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -143,9 +145,9 @@
         android:text="Province"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_DOB"
+        app:layout_constraintStart_toStartOf="@+id/editText_DOB"
+        app:layout_constraintTop_toBottomOf="@+id/editText_DOB" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -178,9 +180,9 @@
         android:layout_marginTop="8dp"
         android:text="Age must be above 18."
         android:textColor="#FF0000"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_DOB"
+        app:layout_constraintStart_toStartOf="@+id/editText_DOB"
+        app:layout_constraintTop_toBottomOf="@+id/editText_DOB" />
 
     <TextView
         android:id="@+id/textView53"
@@ -196,11 +198,11 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editText_passwordProfession"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="  *********"
         android:inputType="textPassword"
@@ -215,9 +217,9 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Characters above are randomized for security reasons."
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_passwordProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_passwordProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editText_passwordProfession" />
 
     <Button
         android:id="@+id/button_save0"
@@ -237,9 +239,10 @@
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editText_passwordProfession"
+        app:layout_constraintStart_toStartOf="@+id/editText_passwordProfession"
         app:layout_constraintTop_toBottomOf="@+id/textView54"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
         tools:targetApi="lollipop" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

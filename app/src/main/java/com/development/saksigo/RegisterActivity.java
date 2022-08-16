@@ -177,55 +177,55 @@ public class RegisterActivity extends AppCompatActivity {
                 stringCheckboxNews = String.valueOf(checkBoxNews.isChecked());
 
                 if(checkEmail()){
-                    editTextEmail.setError("email must contain ‘@’ and placed not at the start or at the end of the input");
+                    editTextEmail.setError("Email must contain ‘@’ and placed properly.");
                     editTextEmail.requestFocus();
                     return;
                 }
 
                 if(!email.contains(".") || email.contains("@.") || email.contains(".@")){
-                    editTextEmail.setError("email must contain ‘.’ and not next to ‘@’ symbol.");
+                    editTextEmail.setError("Email must contain ‘.’ and not next to the ‘@’ symbol.");
                     editTextEmail.requestFocus();
                     return;
                 }
 
                 if(fullname.length() < 5 || fullname.length() > 30){
-                    editTextName.setError("username must between 5 and 30 character");
+                    editTextName.setError("Username must between 5 and 30 characters");
                     editTextName.requestFocus();
                     return;
                 }
 
                 if(password.length() < 6){
-                    editTextPassword.setError("password length must be more than 6 characters.");
+                    editTextPassword.setError("Password length must be over 6 characters.");
                     editTextPassword.requestFocus();
                     return;
                 }
 
                 if(!Pattern.compile("[0-9]").matcher(password).find() || !Pattern.compile("[A-Z]").matcher(password).find() || !Pattern.compile("[a-z]").matcher(password).find()){
-                    editTextPassword.setError("password must contains at least 1 digit, 1 uppercased letter and 1 lowercased letter.");
+                    editTextPassword.setError("Password must contain at least 1 digit, 1 uppercase letter and 1 lowercase letter.");
                     editTextPassword.requestFocus();
                     return;
                 }
 
                 if(!password.equals(rePassword)){
-                    editTextRePassword.setError("Re-enter the same password for confirmation");
+                    editTextRePassword.setError("Re-enter the same password for confirmation.");
                     editTextRePassword.requestFocus();
                     return;
                 }
 
                 if(phoneNumber.length() < 10 || phoneNumber.length() > 12){
-                    editTextPhone.setError("phone number must be between 10 and 12 digits");
+                    editTextPhone.setError("Phone number must be between 10 and 12 digits.");
                     editTextPhone.requestFocus();
                     return;
                 }
 
                 if(checkPhone()){
-                    editTextPhone.setError("phone number must contains only numbers");
+                    editTextPhone.setError("Phone number must only contain numbers.");
                     editTextPhone.requestFocus();
                     return;
                 }
 
                 if(stringCheckboxTerms.equals("false") || stringCheckboxPrivacy.equals("false")){
-                    Toast.makeText(RegisterActivity.this, "User must agree to our policies before registration", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "User must agree to our policies before registering.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
