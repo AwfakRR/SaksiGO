@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class CompleteRegistration25Fragment extends Fragment {
 
-    String stringAboutYou, stringVideoLink, stringLegalServices, stringParseIntLegalServicesType;
+    public String stringAboutYou, stringVideoLink, stringLegalServices, stringParseIntLegalServicesType;
     EditText editTextAboutYou, editTextVideoLink;
     Button buttonSaveContinue;
     Spinner spinnerLegalServices;
@@ -135,6 +135,8 @@ public class CompleteRegistration25Fragment extends Fragment {
                         ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
                         ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(50);
                         ProfessionCompleteRegistrationFragment.textViewPercent.setText("50%");
+                    }else{
+
                     }
 
 
