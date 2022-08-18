@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -49,18 +50,19 @@ public class CompleteRegistration25Fragment extends Fragment {
                 stringAboutYou = editTextAboutYou.getText().toString();
                 stringVideoLink = editTextVideoLink.getText().toString();
                 stringLegalServices = spinnerLegalServices.getSelectedItem().toString();
-
-                if (stringAboutYou.isEmpty()){
+                if (stringLegalServices.equals("Select your work specialty..")){
+                    Toast.makeText(getActivity(), "Legal Services type is not selected yet!", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                else if (stringAboutYou.isEmpty()){
                     editTextAboutYou.setError("About You field is still empty!");
                     editTextAboutYou.requestFocus();
                     return;
-                }else if (stringAboutYou.length() < 50){
+                }else if (stringAboutYou.length() < 50) {
                     editTextAboutYou.setError("You must write a minimum of 50 characters.");
                     editTextAboutYou.requestFocus();
                     return;
                 }
-
-
                 loadingDialog.startLoadingDialog();
 
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration50Fragment);
