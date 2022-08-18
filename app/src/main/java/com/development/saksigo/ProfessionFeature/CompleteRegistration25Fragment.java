@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.development.saksigo.LoadingDialog;
+import com.development.saksigo.LoginActivity;
 import com.development.saksigo.R;
 
 public class CompleteRegistration25Fragment extends Fragment {
@@ -20,9 +22,11 @@ public class CompleteRegistration25Fragment extends Fragment {
     EditText editTextAboutYou, editTextVideoLink;
     Button buttonSaveContinue;
     Spinner spinnerLegalServices;
+    LoadingDialog loadingDialog;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_25_fragment, container, false);
+        loadingDialog = new LoadingDialog(getActivity());
 
 
         editTextAboutYou = (EditText) root.findViewById(R.id.editText_aboutYouProfession);
@@ -46,13 +50,23 @@ public class CompleteRegistration25Fragment extends Fragment {
                 stringVideoLink = editTextVideoLink.getText().toString();
                 stringLegalServices = spinnerLegalServices.getSelectedItem().toString();
 
+                if (stringAboutYou.isEmpty()){
+                    editTextAboutYou.setError("About You field is still empty!");
+                    editTextAboutYou.requestFocus();
+                    return;
+                }else if (stringAboutYou.length() < 50){
+                    editTextAboutYou.setError("You must write a minimum of 50 characters.");
+                    editTextAboutYou.requestFocus();
+                    return;
+                }
 
 
+                loadingDialog.startLoadingDialog();
 
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration50Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
                 fragmentTransaction.commit();
-
+                loadingDialog.dismissDialog();
             }
         });
 

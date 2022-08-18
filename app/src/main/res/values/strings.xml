@@ -40,7 +40,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profession_registration">Profession Registration</string>
-    <string name="describe_the_services_that_you_could_provide_as_a_legal_advocate_and_your_background_as_a_legal_advocate">Describe the services that you could provide as a Legal Advocate, and your background as a Legal Advocate...</string>
+    <string name="describe_the_services_that_you_could_provide_as_a_legal_advocate_and_your_background_as_a_legal_advocate">Describe the services that you could provide as a Legal Advocate, and your background as a Legal Advocate... (50 characters minimum)</string>
     <string name="youtube_google_drive_vimeo_etc_link">Provide a video link e.g. YouTube..</string>
 
 </resources>

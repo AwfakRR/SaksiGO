@@ -32,6 +32,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 
 import com.development.saksigo.IntroductionActivity;
+import com.development.saksigo.LoadingDialog;
+import com.development.saksigo.LoginActivity;
 import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -73,12 +75,15 @@ public class CompleteRegistration0Fragment extends Fragment {
 
 
 
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_0_fragment, container, false);
 
         Date d = new Date();
         minimalYear = d.getYear()-18+1900;
         Log.i("tagtajim", String.valueOf(minimalYear));
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -135,7 +140,6 @@ public class CompleteRegistration0Fragment extends Fragment {
         editTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
 
                 final Calendar c = Calendar.getInstance();
