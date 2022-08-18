@@ -39,7 +39,7 @@ public class CompleteRegistration25Fragment extends Fragment {
     LoadingDialog loadingDialog;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
-    int intLegalServicesType;
+    int intLegalServicesType=0;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_25_fragment, container, false);
@@ -107,8 +107,11 @@ public class CompleteRegistration25Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
 
-                    stringParseIntLegalServicesType = dataSnapshot.child("legalServicesType").getValue().toString();
-                    intLegalServicesType = Integer.parseInt(stringParseIntLegalServicesType);
+                    if(dataSnapshot.hasChild("legalServicesType")){
+                        stringParseIntLegalServicesType = dataSnapshot.child("legalServicesType").getValue().toString();
+                        intLegalServicesType = Integer.parseInt(stringParseIntLegalServicesType);
+                    }
+
                     stringAboutYou = dataSnapshot.child("aboutYou").getValue().toString();
                     stringVideoLink = dataSnapshot.child("videoLink").getValue().toString();
 
