@@ -84,7 +84,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextPostal.setError("Postal code field is still empty!");
                     editTextPostal.requestFocus();
                     return;
-                } else if (checkPostal()){
+                }else if (checkPostal()){
                     editTextPostal.setError("Postal code must only contain numbers.");
                     editTextPostal.requestFocus();
                     return;
