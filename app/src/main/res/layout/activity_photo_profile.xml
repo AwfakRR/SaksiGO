@@ -53,4 +53,24 @@
         app:layout_constraintStart_toStartOf="@+id/circleImageView_profilePhotoEdit"
         app:layout_constraintTop_toBottomOf="@+id/circleImageView_profilePhotoEdit" />
 
+    <EditText
+        android:id="@+id/editText_nameProfile"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_baseline_person"
+        android:drawableLeft="@drawable/ic_baseline_person"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/hint_full_name"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        tools:ignore="TextContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
