@@ -29,12 +29,12 @@ public class RegistrationFragment extends Fragment {
         imageViewLegalServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProfessionCompleteRegistrationFragment professionCompleteRegistrationFragment= new ProfessionCompleteRegistrationFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.containerProfessionRegistration, professionCompleteRegistrationFragment);
-                fragmentTransaction.addToBackStack("professionRegistration");
-                fragmentTransaction.commit();
+//                ProfessionCompleteRegistrationFragment professionCompleteRegistrationFragment= new ProfessionCompleteRegistrationFragment();
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.containerProfessionRegistration, professionCompleteRegistrationFragment);
+//                fragmentTransaction.addToBackStack("professionRegistration");
+//                fragmentTransaction.commit();
             }
         });
 

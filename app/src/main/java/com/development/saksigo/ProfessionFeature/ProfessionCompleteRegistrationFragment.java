@@ -22,9 +22,9 @@ import com.development.saksigo.R;
 
 public class ProfessionCompleteRegistrationFragment extends Fragment {
 
-    ProgressBar progressBarProfessionRegistration;
-    TextView textViewProfile, textViewProfileAccording, textViewNationalId, textViewBankAccount, textViewPercent;
-    ImageView imageViewCheckProfile, imageViewCheckProfileAccording, imageViewCheckNationalId, imageViewCheckBankAccount;
+    public static ProgressBar progressBarProfessionRegistration;
+    public static TextView textViewProfile, textViewProfileAccording, textViewNationalId, textViewBankAccount, textViewPercent;
+    public static ImageView imageViewCheckProfile, imageViewCheckProfileAccording, imageViewCheckNationalId, imageViewCheckBankAccount;
 
 
 
@@ -35,7 +35,7 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_fragment, container, false);
 
-
+        //Find view by Id
         textViewProfile = (TextView) root.findViewById(R.id.textView_profileProfession);
         textViewProfileAccording = (TextView) root.findViewById(R.id.textView_profileAccordingProfession);
         textViewNationalId = (TextView) root.findViewById(R.id.textView_nationalIdProfession);
@@ -50,18 +50,10 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
 
         progressBarProfessionRegistration = (ProgressBar) root.findViewById(R.id.progressBar_professionRegistration);
 
-        textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-        imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-        textViewProfileAccording.setTypeface(textViewProfileAccording.getTypeface(), Typeface.BOLD);
-
-        progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-        progressBarProfessionRegistration.setProgress(25);
-        textViewPercent.setText("25%");
-
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         CompleteRegistration0Fragment completeRegistration0Fragment = new CompleteRegistration0Fragment();
         fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration0Fragment);
-        fragmentTransaction.addToBackStack("professionRegistration");
+        fragmentTransaction.addToBackStack("profileRegistration");
         fragmentTransaction.commit();
 
 

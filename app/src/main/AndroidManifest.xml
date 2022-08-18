@@ -31,8 +31,7 @@
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".ResetPasswordActivity"
-            android:exported="false"
-            android:parentActivityName=".LoginActivity" />
+            android:exported="false" />
         <activity
             android:name=".TermsActivity"
             android:exported="false"

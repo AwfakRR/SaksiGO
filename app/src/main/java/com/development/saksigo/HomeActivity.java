@@ -32,6 +32,7 @@ import com.development.saksigo.Fragment.HomeFragment;
 import com.development.saksigo.Fragment.LawProcessFragment;
 import com.development.saksigo.Fragment.ProfessionFragment;
 import com.development.saksigo.Fragment.ProfileFragment;
+import com.google.firebase.auth.FirebaseAuth;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import com.yarolegovich.slidingrootnav.SlidingRootNavLayout;
@@ -197,9 +198,11 @@ public class HomeActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
             editor.putString("loginAgain", "false");
             editor.commit();
+
             startActivity(intent);
 
-//            finish();
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
 
         slidingRootNav.closeMenu();

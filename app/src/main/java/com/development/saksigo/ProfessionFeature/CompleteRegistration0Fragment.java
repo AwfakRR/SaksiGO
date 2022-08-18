@@ -4,6 +4,9 @@ import static android.app.Activity.RESULT_OK;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,6 +39,10 @@ import com.development.saksigo.LoadingDialog;
 import com.development.saksigo.LoginActivity;
 import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
+import com.development.saksigo.ResetPasswordActivity;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,87 +60,74 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CompleteRegistration0Fragment extends Fragment {
 
-    private CircleImageView profileImageView;
+
     private DatabaseReference databaseReference;
 
     TextView textViewFullname;
     FirebaseAuth mAuth;
     Spinner spinnerProvince;
-    EditText editTextDate, editTextEmail, editTextPhone, editTextPassword;
-    String stringSpinner, stringDate, stringEmail, stringPhone, stringPassword;
-    boolean passwordVisible;
-    Button buttonSave;
+    EditText editTextDate, editTextEmail, editTextPhone;
+    String stringSpinner, stringDate, stringEmail, stringPhone, stringParseIntProvince, stringImage;
+
+    Button buttonSave, buttonResetPassword;
     CircleImageView circleImageViewProfilePic;
-    int selectedYear, minimalYear;
-
-
-
-
-
+    int selectedYear, minimalYear, intProvince;
+    LoadingDialog loadingDialog;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_0_fragment, container, false);
 
-        Date d = new Date();
-        minimalYear = d.getYear()-18+1900;
-        Log.i("tagtajim", String.valueOf(minimalYear));
-
-
-
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
+
+        loadingDialog = new LoadingDialog(getActivity());
+
+        Date d = new Date();
+        minimalYear = d.getYear()-18+1900;
+
         circleImageViewProfilePic = root.findViewById(R.id.circleImageView_profilePhoto);
         textViewFullname = root.findViewById(R.id.textView_fullnameProfession);
         spinnerProvince = root.findViewById(R.id.spinner_Province);
         editTextEmail = root.findViewById(R.id.editText_emailProfession);
         editTextPhone = root.findViewById(R.id.editText_phoneProfession);
-        editTextPassword = root.findViewById(R.id.editText_passwordProfession);
-        editTextDate = root.findViewById(R.id.editText_DOB);
-        buttonSave = root.findViewById(R.id.button_save0);
-        editTextDate.setKeyListener(null);
+        buttonResetPassword = root.findViewById(R.id.button_resetPasswordProfession);
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.id_province));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProvince.setAdapter(arrayAdapter);
 
-        Intent intent = new Intent(container.getContext(), PhotoProfileActivity.class);
+        editTextDate = root.findViewById(R.id.editText_DOB);
+        buttonSave = root.findViewById(R.id.button_save0);
+        editTextDate.setKeyListener(null);
 
         getUserInfo();
 
-        editTextPassword.setOnTouchListener(new View.OnTouchListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+        stringEmail = editTextEmail.getText().toString();
+        stringPhone = editTextPhone.getText().toString();
+        stringDate = editTextDate.getText().toString();
+        stringSpinner = spinnerProvince.getSelectedItem().toString();
+        intProvince = spinnerProvince.getSelectedItemPosition();
+
+        setProgress();
+
+
+
+
+        Intent intent = new Intent(container.getContext(), PhotoProfileActivity.class);
+        Intent intentResetPassword = new Intent(container.getContext(), ResetPasswordActivity.class);
+
+
+        buttonResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                final int Right=2;
-                if(motionEvent.getAction() == motionEvent.ACTION_UP){
-                    if(motionEvent.getRawX()>=editTextPassword.getRight()-editTextPassword.getCompoundDrawables()[Right].getBounds().width()){
-                        int selection = editTextPassword.getSelectionEnd();
-                        if(passwordVisible){
-                            editTextPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_baseline_lock,0,R.drawable.ic_baseline_visibility_off,0);
-
-
-
-                            editTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                            passwordVisible = false;
-                        }else{
-                            editTextPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_baseline_lock,0,R.drawable.ic_baseline_visibility_on,0);
-
-                            editTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                            passwordVisible = true;
-                        }
-                        editTextPassword.setSelection(selection);
-                        return true;
-                    }
-                }
-
-
-                return false;
+            public void onClick(View view) {
+                startActivity(intentResetPassword);
             }
         });
 
@@ -171,9 +165,9 @@ public class CompleteRegistration0Fragment extends Fragment {
 
                 stringEmail = editTextEmail.getText().toString();
                 stringPhone = editTextPhone.getText().toString();
-                stringPassword = editTextPassword.getText().toString();
                 stringDate = editTextDate.getText().toString();
                 stringSpinner = spinnerProvince.getSelectedItem().toString();
+                intProvince = spinnerProvince.getSelectedItemPosition();
 
                 if(stringEmail.isEmpty()){
                     editTextEmail.setError("Email field is still empty!");
@@ -206,57 +200,104 @@ public class CompleteRegistration0Fragment extends Fragment {
                 }else if (checkTime()){
                     editTextDate.setError("You must be at least 18 years old to use SaksiGO's services.");
                     editTextDate.requestFocus();
-
                     return;
                 }else if(stringSpinner.equals("Select your province..")){
                     editTextDate.clearFocus();
                     editTextDate.setError(null);
                     Toast.makeText(getActivity(), "Province is not selected yet!", Toast.LENGTH_LONG).show();
                     return;
-                }else if(stringPassword.isEmpty()){
-                    editTextDate.clearFocus();
-                    editTextDate.setError(null);
-                    editTextPassword.setError("Password field is still empty!");
-
-                    editTextPassword.requestFocus();
-                    return;
-                }else if(stringPassword.length() < 6){
-                    editTextDate.clearFocus();
-                    editTextDate.setError(null);
-                    editTextPassword.setError("Password length must be over 6 characters.");
-                    editTextPassword.requestFocus();
-                    return;
-                }else if(!Pattern.compile("[0-9]").matcher(stringPassword).find()
-                        || !Pattern.compile("[A-Z]").matcher(stringPassword).find() ||
-                        !Pattern.compile("[a-z]").matcher(stringPassword).find()){
-                    editTextDate.clearFocus();
-                    editTextDate.setError(null);
-                    editTextPassword.setError("Password must contain at least 1 number, 1 uppercase letter and 1 lowercase letter.");
-                    editTextPassword.requestFocus();
-                    return;
                 }
+
+
                 editTextDate.clearFocus();
                 editTextDate.setError(null);
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 CompleteRegistration25Fragment completeRegistration25Fragment = new CompleteRegistration25Fragment();
 
+                loadingDialog.startLoadingDialog();
+
+                updateProfile0();
+
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration25Fragment);
-                fragmentTransaction.addToBackStack("professionRegistration");
+                fragmentTransaction.addToBackStack("profileRegistration");
                 fragmentTransaction.commit();
+
+                loadingDialog.dismissDialog();
             }
         });
 
         circleImageViewProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startActivity(intent);
-
-
             }
         });
 
         return root;
+    }
+
+    private void setProgress() {
+
+        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
+                    String name = dataSnapshot.child("fullname").getValue().toString();
+                    stringEmail = dataSnapshot.child("email").getValue().toString();
+                    stringPhone = dataSnapshot.child("phoneNumber").getValue().toString();
+                    if(dataSnapshot.hasChild("dateOfBirth")) stringDate = dataSnapshot.child("dateOfBirth").getValue().toString();
+                    if(dataSnapshot.hasChild("province"))  stringParseIntProvince = dataSnapshot.child("province").getValue().toString();
+
+                    if(dataSnapshot.hasChild("image")){
+                         stringImage = dataSnapshot.child("image").getValue().toString();
+                        Picasso.get().load(stringImage).into(circleImageViewProfilePic);
+                    }
+
+                    if(!stringEmail.isEmpty() && !stringPhone.isEmpty() && !stringDate.isEmpty() && !stringSpinner.isEmpty() && !stringImage.isEmpty()){
+                        //Textview settings
+                        ProfessionCompleteRegistrationFragment.textViewProfile.setTextColor(Color.parseColor("#FFA806"));
+                        ProfessionCompleteRegistrationFragment.imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
+                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD);
+
+                        //Progress bar settings
+                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
+                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(25);
+                        ProfessionCompleteRegistrationFragment.textViewPercent.setText("25%");
+                    }else{
+                        //TextView Settings
+                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD);
+
+                        //Progress bar settings
+                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
+                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(0);
+                        ProfessionCompleteRegistrationFragment.textViewPercent.setText("0%");
+                    }
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+    }
+
+    private void updateProfile0() {
+
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap.put("email", stringEmail);
+        userMap.put("phoneNumber", stringPhone);
+        userMap.put("dateOfBirth", stringDate);
+        userMap.put("province", intProvince);
+
+        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+
     }
 
     private void getUserInfo() {
@@ -265,9 +306,17 @@ public class CompleteRegistration0Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
                     String name = dataSnapshot.child("fullname").getValue().toString();
-
+                    stringEmail = dataSnapshot.child("email").getValue().toString();
+                    stringPhone = dataSnapshot.child("phoneNumber").getValue().toString();
+                    if(dataSnapshot.hasChild("dateOfBirth")) stringDate = dataSnapshot.child("dateOfBirth").getValue().toString();
+                    if(dataSnapshot.hasChild("province"))  stringParseIntProvince = dataSnapshot.child("province").getValue().toString();
 
                     textViewFullname.setText(name);
+                    editTextEmail.setText(stringEmail);
+                    editTextPhone.setText(stringPhone);
+                    editTextDate.setText(stringDate);
+                    intProvince = Integer.valueOf(stringParseIntProvince);
+                    spinnerProvince.setSelection(intProvince);
 
                     if(dataSnapshot.hasChild("image")){
                         String image = dataSnapshot.child("image").getValue().toString();

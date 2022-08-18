@@ -22,7 +22,7 @@ public class ProfileFragment extends Fragment {
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         ProfessionCompleteRegistrationFragment professionCompleteRegistrationFragment = new ProfessionCompleteRegistrationFragment();
         fragmentTransaction.replace(R.id.container_profile, professionCompleteRegistrationFragment);
-        fragmentTransaction.addToBackStack("professionRegistration");
+        fragmentTransaction.addToBackStack("profileRegistration");
         fragmentTransaction.commit();
 
 

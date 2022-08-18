@@ -32,14 +32,14 @@
 
         <item>Select your work specialty..</item>
         <item>Legal Consultant</item>
-            <item>Lawyer</item>
-            <item>Public Notary</item>
-            <item>Arbitrator</item>
-            <item>Curator</item>
-            <item>Mediator</item>
-            <item>Conciliator</item>
-            <item>Mediator</item>
-            <item>Legal Staff</item>
+        <item>Lawyer</item>
+        <item>Public Notary</item>
+        <item>Arbitrator</item>
+        <item>Curator</item>
+        <item>Mediator</item>
+        <item>Conciliator</item>
+        <item>Mediator</item>
+        <item>Legal Staff</item>
 
     </string-array>
 
