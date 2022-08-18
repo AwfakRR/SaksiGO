@@ -78,7 +78,7 @@ public class CompleteRegistration0Fragment extends Fragment {
 
     Button buttonSave, buttonResetPassword;
     CircleImageView circleImageViewProfilePic;
-    int selectedYear, minimalYear, intProvince;
+    int selectedYear, minimalYear, intProvince=0;
     LoadingDialog loadingDialog;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -249,7 +249,7 @@ public class CompleteRegistration0Fragment extends Fragment {
                     if(dataSnapshot.hasChild("province"))  stringParseIntProvince = dataSnapshot.child("province").getValue().toString();
 
                     if(dataSnapshot.hasChild("image")){
-                         stringImage = dataSnapshot.child("image").getValue().toString();
+                        stringImage = dataSnapshot.child("image").getValue().toString();
                         Picasso.get().load(stringImage).into(circleImageViewProfilePic);
                     }
 
@@ -315,7 +315,7 @@ public class CompleteRegistration0Fragment extends Fragment {
                     editTextEmail.setText(stringEmail);
                     editTextPhone.setText(stringPhone);
                     editTextDate.setText(stringDate);
-                    intProvince = Integer.valueOf(stringParseIntProvince);
+                    if(dataSnapshot.hasChild("province"))  intProvince = Integer.valueOf(stringParseIntProvince);
                     spinnerProvince.setSelection(intProvince);
 
                     if(dataSnapshot.hasChild("image")){
