@@ -84,6 +84,10 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextPostal.setError("Postal code field is still empty!");
                     editTextPostal.requestFocus();
                     return;
+                }else if (stringPostal.length() < 5 || stringPostal.length() > 5){
+                    editTextPostal.setError("Postal code must be 5 digits");
+                    editTextPostal.requestFocus();
+                    return;
                 }else if (checkPostal()){
                     editTextPostal.setError("Postal code must only contain numbers.");
                     editTextPostal.requestFocus();
@@ -96,13 +100,15 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextCPostal.setError("Current Postal code field is still empty!");
                     editTextCPostal.requestFocus();
                     return;
+                }else if (stringCPostal.length() < 5 || stringCPostal.length() > 5){
+                    editTextCPostal.setError("Current Postal code must be 5 digits.");
+                    editTextCPostal.requestFocus();
+                    return;
                 }else if (checkCPostal()){
                     editTextCPostal.setError("Current Postal code must only contain numbers.");
                     editTextCPostal.requestFocus();
                     return;
                 }
-
-
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
                 fragmentTransaction.commit();
