@@ -112,8 +112,11 @@ public class CompleteRegistration25Fragment extends Fragment {
                         intLegalServicesType = Integer.parseInt(stringParseIntLegalServicesType);
                     }
 
-                    stringAboutYou = dataSnapshot.child("aboutYou").getValue().toString();
-                    stringVideoLink = dataSnapshot.child("videoLink").getValue().toString();
+                    if(dataSnapshot.hasChild("aboutYou")) {
+                        stringAboutYou = dataSnapshot.child("aboutYou").getValue().toString();
+                    }
+
+                    if(dataSnapshot.hasChild("videoLink")) stringVideoLink = dataSnapshot.child("videoLink").getValue().toString();
 
                     spinnerLegalServices.setSelection(intLegalServicesType);
                     editTextAboutYou.setText(stringAboutYou);
