@@ -78,9 +78,7 @@
         android:id="@+id/editText_aboutYouProfession"
         android:layout_width="300dp"
         android:layout_height="120dp"
-
         android:background="@drawable/rounded_edit_text"
-
         android:ems="10"
         android:hint="@string/describe_the_services_that_you_could_provide_as_a_legal_advocate_and_your_background_as_a_legal_advocate"
         android:inputType="textMultiLine"
