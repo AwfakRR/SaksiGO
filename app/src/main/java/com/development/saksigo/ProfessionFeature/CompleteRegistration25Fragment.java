@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class CompleteRegistration25Fragment extends Fragment {
 
-    public String stringAboutYou, stringVideoLink, stringLegalServices, stringParseIntLegalServicesType;
+    public String stringAboutYou="", stringVideoLink, stringLegalServices, stringParseIntLegalServicesType="";
     EditText editTextAboutYou, editTextVideoLink;
     Button buttonSaveContinue;
     Spinner spinnerLegalServices;
