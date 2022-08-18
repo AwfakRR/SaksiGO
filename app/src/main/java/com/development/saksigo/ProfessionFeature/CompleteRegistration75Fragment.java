@@ -18,7 +18,7 @@ public class CompleteRegistration75Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_75_fragment, container, false);
 
-        buttonSave75 = root.findViewById(R.id.button_save75);
+        buttonSave75 = root.findViewById(R.id.button_photoId);
 
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration100Fragment completeRegistration100Fragment = new CompleteRegistration100Fragment();

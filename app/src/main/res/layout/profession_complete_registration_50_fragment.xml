@@ -404,9 +404,9 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="241dp"
-                android:layout_height="242dp"
+                android:id="@+id/imageView_selfieWithId"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -417,7 +417,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_selfieWithId"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -440,18 +440,18 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintEnd_toEndOf="@+id/button_selfieWithId"
+        app:layout_constraintStart_toStartOf="@+id/button_selfieWithId"
+        app:layout_constraintTop_toBottomOf="@+id/button_selfieWithId">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/imageView_idPhoto"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.609"
@@ -462,7 +462,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button_save75"
+        android:id="@+id/button_photoId"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -488,13 +488,13 @@
         android:text="Current Address"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button_save75"
+        app:layout_constraintEnd_toEndOf="@+id/button_photoId"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button_save75"
-        app:layout_constraintTop_toBottomOf="@+id/button_save75" />
+        app:layout_constraintStart_toStartOf="@+id/button_photoId"
+        app:layout_constraintTop_toBottomOf="@+id/button_photoId" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox_matchedId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -522,8 +522,8 @@
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_matchedId"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_matchedId"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <TextView

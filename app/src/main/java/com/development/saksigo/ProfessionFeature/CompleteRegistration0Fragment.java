@@ -257,7 +257,7 @@ public class CompleteRegistration0Fragment extends Fragment {
                         //Textview settings
                         ProfessionCompleteRegistrationFragment.textViewProfile.setTextColor(Color.parseColor("#FFA806"));
                         ProfessionCompleteRegistrationFragment.imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD);
+                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
 
                         //Progress bar settings
                         ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
@@ -265,7 +265,7 @@ public class CompleteRegistration0Fragment extends Fragment {
                         ProfessionCompleteRegistrationFragment.textViewPercent.setText("25%");
                     }else{
                         //TextView Settings
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD);
+                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
 
                         //Progress bar settings
                         ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);

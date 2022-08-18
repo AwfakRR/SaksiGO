@@ -1,29 +1,80 @@
 package com.development.saksigo.ProfessionFeature;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.development.saksigo.DatabaseModel.NationalId;
+import com.development.saksigo.DatabaseModel.Users;
+import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
+import com.development.saksigo.RegisterActivity;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+
+import java.util.HashMap;
 
 public class CompleteRegistration50Fragment extends Fragment {
 
-    Button buttonSaveAndContinue50;
+
+    Button buttonSaveAndContinue50, buttonSelfieWithId, buttonPhotoId;
     Spinner spinnerGender;
     EditText editTextID, editTextFirstN, editTextLastN, editTextAddress, editTextPostal, editTextCAddress, editTextCPostal;
-    String stringGender, stringID, stringFirstN, stringLastN, stringAddress, stringPostal, stringCAddress, stringCPostal;
+    String stringGender, stringID, stringFirstN, stringLastN, stringAddress, stringPostal,
+            stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal, stringSpinnerGender;
+    int intSpinnerGender;
+    boolean booleanMatchesId;
+    ImageView imageViewSelfieWithId, imageViewIdPhoto;
+    CheckBox checkBoxMatchesId;
+    Uri uriSelfieWithId, uriPhotoId;
+
+    private StorageTask uploadTask;
+    FirebaseAuth mAuth;
+    DatabaseReference databaseReference;
+    StorageReference storageProfilePicsRef;
+
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
+
+        storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner/NationalId");
+        mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NationalId");
 
         spinnerGender = root.findViewById(R.id.spinner_Gender);
         editTextID = root.findViewById(R.id.editText_nationalId);
@@ -31,6 +82,13 @@ public class CompleteRegistration50Fragment extends Fragment {
         editTextLastN = root.findViewById(R.id.editText_lastNameId);
         editTextAddress = root.findViewById(R.id.editText_addressId);
         editTextPostal = root.findViewById(R.id.editText_postalId);
+
+        buttonSelfieWithId = root.findViewById(R.id.button_selfieWithId);
+
+        imageViewSelfieWithId = root.findViewById(R.id.imageView_selfieWithId);
+        imageViewIdPhoto = root.findViewById(R.id.imageView_idPhoto);
+
+        checkBoxMatchesId = root.findViewById(R.id.checkBox_matchedId);
         editTextCAddress = root.findViewById(R.id.editText_addressCurrent);
         editTextCPostal = root.findViewById(R.id.editText_postalCurrent);
         buttonSaveAndContinue50 = root.findViewById(R.id.button_save50);
@@ -43,6 +101,45 @@ public class CompleteRegistration50Fragment extends Fragment {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
 
+        checkBoxMatchesId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    editTextCAddress.setEnabled(false);
+                    editTextCPostal.setEnabled(false);
+
+                    booleanMatchesId = true;
+                    stringCAddress = editTextAddress.getText().toString();
+                    stringCPostal = editTextPostal.getText().toString();
+
+
+                    editTextCAddress.setBackgroundResource(R.drawable.disabled_rounded_edit_text);
+                    editTextCPostal.setBackgroundResource(R.drawable.disabled_rounded_edit_text);
+
+
+                }else{
+                    editTextCAddress.setEnabled(true);
+                    editTextCPostal.setEnabled(true);
+
+                    booleanMatchesId = false;
+                    stringCAddress = editTextCAddress.getText().toString();
+                    stringCPostal = editTextCPostal.getText().toString();
+
+                    editTextCAddress.setBackgroundResource(R.drawable.rounded_edit_text);
+                    editTextCPostal.setBackgroundResource(R.drawable.rounded_edit_text);
+                }
+            }
+        });
+
+
+        buttonSelfieWithId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                CropImage.activity().setAspectRatio(1,1).start(getContext(), CompleteRegistration50Fragment.this);
+            }
+        });
 
         buttonSaveAndContinue50.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,14 +206,85 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextCPostal.requestFocus();
                     return;
                 }
+
+                updateData();
+
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
                 fragmentTransaction.commit();
+
+
             }
         });
 
         return root;
     }
+
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            uriSelfieWithId = result.getUri();
+
+            imageViewSelfieWithId.setImageURI(uriSelfieWithId);
+        }else {
+            Toast.makeText(getActivity(), "Error, try again.", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    private void uploadProfileImage(){
+
+        if (uriSelfieWithId !=null){
+            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+
+            uploadTask = fileRef.putFile(uriSelfieWithId);
+            uploadTask.continueWithTask(new Continuation() {
+                @Override
+                public Object then(@NonNull Task task) throws Exception {
+
+                    if (!task.isSuccessful()){
+                        throw task.getException();
+                    }
+                    return fileRef.getDownloadUrl();
+                }
+            }) .addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()){
+                        Uri downloadUrl = task.getResult();
+                        stringSelfieWithId = downloadUrl.toString();
+
+                        HashMap<String, Object> userMap = new HashMap<>();
+                        userMap.put("selfieWithId", uriSelfieWithId);
+
+                        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+
+
+                    }
+                }
+            });
+        }
+        else {
+
+            Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void updateData() {
+
+        NationalId nationalId = new NationalId(stringID, stringFirstN, stringLastN, stringGender,
+                stringAddress, stringPostal, stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal);
+
+        FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("NationalId")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(nationalId);
+
+    }
+
     private boolean checkPostal(){
         char a;
         boolean checkPostal = false;
