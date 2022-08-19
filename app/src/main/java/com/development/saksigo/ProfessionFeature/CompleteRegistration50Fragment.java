@@ -237,7 +237,9 @@ public class CompleteRegistration50Fragment extends Fragment {
                 intSpinnerGender = spinnerGender.getSelectedItemPosition();
                 stringSpinnerGender = String.valueOf(intSpinnerGender);
 
-                uploadProfileImage();
+                uploadProfileImageSelfie();
+                uploadProfileImagePhoto();
+
                 updateData();
 
 
@@ -251,6 +253,8 @@ public class CompleteRegistration50Fragment extends Fragment {
 
         return root;
     }
+
+
 
 //    private void getUserInfo() {
 //
@@ -296,7 +300,46 @@ public class CompleteRegistration50Fragment extends Fragment {
         }
     }
 
-    private void uploadProfileImage(){
+    private void uploadProfileImagePhoto() {
+
+        if (uriPhotoId != null){
+            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+
+            uploadTask = fileRef.putFile(uriPhotoId);
+            uploadTask.continueWithTask(new Continuation() {
+                @Override
+                public Object then(@NonNull Task task) throws Exception {
+
+                    if (!task.isSuccessful()){
+                        throw task.getException();
+                    }
+                    return fileRef.getDownloadUrl();
+                }
+            }) .addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()){
+                        Uri downloadUrl = task.getResult();
+                        stringPhotoId = downloadUrl.toString();
+
+                        HashMap<String, Object> userMap = new HashMap<>();
+                        userMap.put("selfieWithId", stringPhotoId);
+
+                        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+
+
+                    }
+                }
+            });
+        }
+        else {
+
+            Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void uploadProfileImageSelfie(){
 
         if (uriSelfieWithId != null){
             final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
@@ -319,7 +362,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                         stringSelfieWithId = downloadUrl.toString();
 
                         HashMap<String, Object> userMap = new HashMap<>();
-                        userMap.put("selfieWithId", uriSelfieWithId);
+                        userMap.put("selfieWithId", stringSelfieWithId);
 
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
@@ -333,36 +376,7 @@ public class CompleteRegistration50Fragment extends Fragment {
             Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
         }
 
-        if (uriPhotoId != null){
-            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+".jpg");
 
-            uploadTask = fileRef.putFile(uriPhotoId);
-            uploadTask.continueWithTask(new Continuation() {
-                @Override
-                public Object then(@NonNull Task task) throws Exception {
-
-                    if(!task.isSuccessful()){
-                        throw task.getException();
-                    }
-                    return fileRef.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if(task.isSuccessful()){
-                        Uri downloadUrl = task.getResult();
-                        stringPhotoId = downloadUrl.toString();
-
-                        HashMap<String, Object> userMap = new HashMap<>();
-                        userMap.put("photoId", uriPhotoId);
-
-                        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
-                    }
-                }
-            });
-        }else{
-            Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
