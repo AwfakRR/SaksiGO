@@ -304,7 +304,7 @@ public class CompleteRegistration50Fragment extends Fragment {
 
         }
 
-        if(!uriSelfieWithId.toString().isEmpty() && !uriPhotoId.toString().isEmpty() ){
+        if(!uriSelfieWithId.toString().isEmpty() && !uriPhotoId.toString().isEmpty() && !uriSelfieWithId.toString().equals(uriPhotoId.toString())){
             checkNationalIdPhoto = true;
         }else{
             checkNationalIdPhoto = false;
