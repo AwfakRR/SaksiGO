@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -40,6 +41,8 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private String myUri = "";
     private StorageTask uploadTask;
     private StorageReference storageProfilePicsRef;
+    EditText editTextNameProfile;
+    String stringNameProfile;
 
 
     Button buttonSavePicture;
@@ -114,14 +117,18 @@ public class PhotoProfileActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner");
 
+        editTextNameProfile = findViewById(R.id.editText_nameProfile);
         circleImageViewProfilePic = findViewById(R.id.circleImageView_profilePhotoEdit);
         buttonSavePicture = findViewById(R.id.button_savePic);
 
         getUserinfo();
 
+        stringNameProfile = editTextNameProfile.getText().toString();
+
         buttonSavePicture.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 uploadProfileImage();
             }
         });
