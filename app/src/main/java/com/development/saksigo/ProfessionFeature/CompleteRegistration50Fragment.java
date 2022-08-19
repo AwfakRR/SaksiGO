@@ -240,6 +240,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                 updateData();
 
                 uploadProfileImageSelfie();
+
                 uploadProfileImagePhoto();
 
                 String checkPhotoId = String.valueOf(uriPhotoId);
@@ -352,9 +353,9 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImageSelfie(){
 
         if (uriSelfieWithId != null){
-            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+            final StorageReference fileRefSelfie = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
 
-            uploadTaskSelfie = fileRef.putFile(uriSelfieWithId);
+            uploadTaskSelfie = fileRefSelfie.putFile(uriSelfieWithId);
             uploadTaskSelfie.continueWithTask(new Continuation() {
                 @Override
                 public Object then(@NonNull Task task) throws Exception {
@@ -362,7 +363,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                     if (!task.isSuccessful()){
                         throw task.getException();
                     }
-                    return fileRef.getDownloadUrl();
+                    return fileRefSelfie.getDownloadUrl();
                 }
             }) .addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
