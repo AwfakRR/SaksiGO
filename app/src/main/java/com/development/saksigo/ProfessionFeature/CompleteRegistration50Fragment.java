@@ -237,15 +237,25 @@ public class CompleteRegistration50Fragment extends Fragment {
                 intSpinnerGender = spinnerGender.getSelectedItemPosition();
                 stringSpinnerGender = String.valueOf(intSpinnerGender);
 
+                updateData();
+
                 uploadProfileImageSelfie();
                 uploadProfileImagePhoto();
 
-                updateData();
+                String checkPhotoId = String.valueOf(uriPhotoId);
+                Log.i("tag", checkPhotoId);
+
+                String checkSelfieId = String.valueOf(uriSelfieWithId);
+                Log.i("tag", checkSelfieId);
+
+                return;
 
 
-                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
-                fragmentTransaction.addToBackStack("professionRegistration");
-                fragmentTransaction.commit();
+
+
+//                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
+//                fragmentTransaction.addToBackStack("professionRegistration");
+//                fragmentTransaction.commit();
 
 
             }
