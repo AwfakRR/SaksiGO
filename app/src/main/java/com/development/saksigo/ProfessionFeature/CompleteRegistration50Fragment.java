@@ -105,7 +105,7 @@ public class CompleteRegistration50Fragment extends Fragment {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
 
-        getUserInfo();
+//        getUserInfo();
 
         checkBoxMatchesId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -237,8 +237,9 @@ public class CompleteRegistration50Fragment extends Fragment {
                 intSpinnerGender = spinnerGender.getSelectedItemPosition();
                 stringSpinnerGender = String.valueOf(intSpinnerGender);
 
-                updateData();
                 uploadProfileImage();
+                updateData();
+
 
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
@@ -251,23 +252,23 @@ public class CompleteRegistration50Fragment extends Fragment {
         return root;
     }
 
-    private void getUserInfo() {
-
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
+//    private void getUserInfo() {
+//
+//        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//    }
 
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
