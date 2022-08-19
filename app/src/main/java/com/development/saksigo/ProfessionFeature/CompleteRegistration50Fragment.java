@@ -251,11 +251,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                 Log.i("tag", checkSelfieId);
 
 
-                String checkStringSelfie = stringSelfieWithId;
-                Log.i("tagLink", checkStringSelfie);
 
-                String checkStringPhoto = stringPhotoId;
-                Log.i("tagLink", checkStringPhoto);
 
 
 
@@ -346,6 +342,9 @@ public class CompleteRegistration50Fragment extends Fragment {
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("photoId", stringPhotoId);
 
+                        String checkStringPhoto = stringPhotoId;
+                        Log.i("tagLinkPhoto", checkStringPhoto);
+
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
 
@@ -384,6 +383,11 @@ public class CompleteRegistration50Fragment extends Fragment {
 
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("selfieWithId", stringSelfieWithId);
+
+                        String checkStringSelfie = stringSelfieWithId;
+                        Log.i("tagLinkSelfie", checkStringSelfie);
+
+
 
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
