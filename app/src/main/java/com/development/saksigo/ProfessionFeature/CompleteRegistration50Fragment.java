@@ -39,8 +39,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -57,10 +60,10 @@ public class CompleteRegistration50Fragment extends Fragment {
     String stringGender, stringID, stringFirstN, stringLastN, stringAddress, stringPostal,
             stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal, stringSpinnerGender;
     int intSpinnerGender;
-    boolean booleanMatchesId;
+    boolean booleanMatchesId, checkPhotoType, checkNationalIdPhoto;
     ImageView imageViewSelfieWithId, imageViewIdPhoto;
     CheckBox checkBoxMatchesId;
-    Uri uriSelfieWithId, uriPhotoId;
+    Uri uriSelfieWithId = Uri.parse(""), uriPhotoId = Uri.parse("");
 
     private StorageTask uploadTask;
     FirebaseAuth mAuth;
@@ -84,6 +87,7 @@ public class CompleteRegistration50Fragment extends Fragment {
         editTextPostal = root.findViewById(R.id.editText_postalId);
 
         buttonSelfieWithId = root.findViewById(R.id.button_selfieWithId);
+        buttonPhotoId = root.findViewById(R.id.button_photoId);
 
         imageViewSelfieWithId = root.findViewById(R.id.imageView_selfieWithId);
         imageViewIdPhoto = root.findViewById(R.id.imageView_idPhoto);
@@ -101,6 +105,8 @@ public class CompleteRegistration50Fragment extends Fragment {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
 
+        getUserInfo();
+
         checkBoxMatchesId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -110,6 +116,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextCPostal.setEnabled(false);
 
                     booleanMatchesId = true;
+
                     stringCAddress = editTextAddress.getText().toString();
                     stringCPostal = editTextPostal.getText().toString();
 
@@ -123,6 +130,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextCPostal.setEnabled(true);
 
                     booleanMatchesId = false;
+
                     stringCAddress = editTextCAddress.getText().toString();
                     stringCPostal = editTextCPostal.getText().toString();
 
@@ -136,8 +144,17 @@ public class CompleteRegistration50Fragment extends Fragment {
         buttonSelfieWithId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                checkPhotoType = true;
                 CropImage.activity().setAspectRatio(1,1).start(getContext(), CompleteRegistration50Fragment.this);
+            }
+        });
+
+        buttonPhotoId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkPhotoType = false;
+                CropImage.activity().setAspectRatio(1,1).start(getContext(), CompleteRegistration50Fragment.this);
+
             }
         });
 
@@ -189,25 +206,39 @@ public class CompleteRegistration50Fragment extends Fragment {
                     editTextPostal.setError("Postal code must only contain numbers.");
                     editTextPostal.requestFocus();
                     return;
-                }else if (stringCAddress.isEmpty()){
-                    editTextCAddress.setError("Current Address field is still empty!");
-                    editTextCAddress.requestFocus();
-                    return;
-                }else if (stringCPostal.isEmpty()){
-                    editTextCPostal.setError("Current Postal code field is still empty!");
-                    editTextCPostal.requestFocus();
-                    return;
-                }else if (stringCPostal.length() < 5 || stringCPostal.length() > 5){
-                    editTextCPostal.setError("Current Postal code must be 5 digits.");
-                    editTextCPostal.requestFocus();
-                    return;
-                }else if (checkCPostal()){
-                    editTextCPostal.setError("Current Postal code must only contain numbers.");
-                    editTextCPostal.requestFocus();
+                }else if(!checkNationalIdPhoto){
+                    Toast.makeText(getActivity(), "National ID Photo must be uploaded!", Toast.LENGTH_LONG).show();
                     return;
                 }
 
+                if(!checkBoxMatchesId.isChecked()){
+                    if (stringCAddress.isEmpty()){
+                        editTextCAddress.setError("Current Address field is still empty!");
+                        editTextCAddress.requestFocus();
+                        return;
+                    }else if (stringCPostal.isEmpty()){
+                        editTextCPostal.setError("Current Postal code field is still empty!");
+                        editTextCPostal.requestFocus();
+                        return;
+                    }else if (stringCPostal.length() < 5 || stringCPostal.length() > 5){
+                        editTextCPostal.setError("Current Postal code must be 5 digits.");
+                        editTextCPostal.requestFocus();
+                        return;
+                    }else if (checkCPostal()){
+                        editTextCPostal.setError("Current Postal code must only contain numbers.");
+                        editTextCPostal.requestFocus();
+                        return;
+                    }
+                }
+
+                //database preparation
+                stringMatchesId = String.valueOf(booleanMatchesId);
+
+                intSpinnerGender = spinnerGender.getSelectedItemPosition();
+                stringSpinnerGender = String.valueOf(intSpinnerGender);
+
                 updateData();
+                uploadProfileImage();
 
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
@@ -220,24 +251,53 @@ public class CompleteRegistration50Fragment extends Fragment {
         return root;
     }
 
+    private void getUserInfo() {
+
+        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null && checkPhotoType==true){
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             uriSelfieWithId = result.getUri();
 
             imageViewSelfieWithId.setImageURI(uriSelfieWithId);
+        }else if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null && checkPhotoType==false) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            uriPhotoId = result.getUri();
+
+            imageViewIdPhoto.setImageURI(uriPhotoId);
         }else {
             Toast.makeText(getActivity(), "Error, try again.", Toast.LENGTH_SHORT).show();
 
+        }
+
+        if(!uriSelfieWithId.toString().isEmpty() && !uriPhotoId.toString().isEmpty() ){
+            checkNationalIdPhoto = true;
+        }else{
+            checkNationalIdPhoto = false;
         }
     }
 
     private void uploadProfileImage(){
 
-        if (uriSelfieWithId !=null){
+        if (uriSelfieWithId != null){
             final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
 
             uploadTask = fileRef.putFile(uriSelfieWithId);
@@ -271,12 +331,45 @@ public class CompleteRegistration50Fragment extends Fragment {
 
             Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
         }
+
+        if (uriPhotoId != null){
+            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+".jpg");
+
+            uploadTask = fileRef.putFile(uriPhotoId);
+            uploadTask.continueWithTask(new Continuation() {
+                @Override
+                public Object then(@NonNull Task task) throws Exception {
+
+                    if(!task.isSuccessful()){
+                        throw task.getException();
+                    }
+                    return fileRef.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if(task.isSuccessful()){
+                        Uri downloadUrl = task.getResult();
+                        stringPhotoId = downloadUrl.toString();
+
+                        HashMap<String, Object> userMap = new HashMap<>();
+                        userMap.put("photoId", uriPhotoId);
+
+                        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+                    }
+                }
+            });
+        }else{
+            Toast.makeText(getActivity(), "Image not selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
     private void updateData() {
 
-        NationalId nationalId = new NationalId(stringID, stringFirstN, stringLastN, stringGender,
+
+
+        NationalId nationalId = new NationalId(stringID, stringFirstN, stringLastN, stringSpinnerGender,
                 stringAddress, stringPostal, stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal);
 
         FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("NationalId")

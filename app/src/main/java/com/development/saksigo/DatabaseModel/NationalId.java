@@ -2,111 +2,111 @@ package com.development.saksigo.DatabaseModel;
 
 public class NationalId {
 
-    public String stringID, stringFirstN, stringLastN, stringGender, stringAddress, stringPostal, stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal;
+    public String id, firstname, lastname, gender, address, postal, selfieWithId, photoId, matchesId, currentAddress, currentPostal;
 
     public NationalId(){
 
     }
 
-    public NationalId(String stringID, String stringFirstN, String stringLastN, String stringGender, String stringAddress, String stringPostal, String stringSelfieWithId, String stringPhotoId, String stringMatchesId, String stringCAddress, String stringCPostal) {
-        this.stringID = stringID;
-        this.stringFirstN = stringFirstN;
-        this.stringLastN = stringLastN;
-        this.stringGender = stringGender;
-        this.stringAddress = stringAddress;
-        this.stringPostal = stringPostal;
-        this.stringSelfieWithId = stringSelfieWithId;
-        this.stringPhotoId = stringPhotoId;
-        this.stringMatchesId = stringMatchesId;
-        this.stringCAddress = stringCAddress;
-        this.stringCPostal = stringCPostal;
+    public NationalId(String id, String firstname, String lastname, String gender, String address, String postal, String selfieWithId, String photoId, String matchesId, String currentAddress, String currentPostal) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.gender = gender;
+        this.address = address;
+        this.postal = postal;
+        this.selfieWithId = selfieWithId;
+        this.photoId = photoId;
+        this.matchesId = matchesId;
+        this.currentAddress = currentAddress;
+        this.currentPostal = currentPostal;
     }
 
-    public String getStringID() {
-        return stringID;
+    public String getId() {
+        return id;
     }
 
-    public void setStringID(String stringID) {
-        this.stringID = stringID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getStringFirstN() {
-        return stringFirstN;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setStringFirstN(String stringFirstN) {
-        this.stringFirstN = stringFirstN;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getStringLastN() {
-        return stringLastN;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setStringLastN(String stringLastN) {
-        this.stringLastN = stringLastN;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getStringGender() {
-        return stringGender;
+    public String getGender() {
+        return gender;
     }
 
-    public void setStringGender(String stringGender) {
-        this.stringGender = stringGender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getStringAddress() {
-        return stringAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStringAddress(String stringAddress) {
-        this.stringAddress = stringAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getStringPostal() {
-        return stringPostal;
+    public String getPostal() {
+        return postal;
     }
 
-    public void setStringPostal(String stringPostal) {
-        this.stringPostal = stringPostal;
+    public void setPostal(String postal) {
+        this.postal = postal;
     }
 
-    public String getStringSelfieWithId() {
-        return stringSelfieWithId;
+    public String getSelfieWithId() {
+        return selfieWithId;
     }
 
-    public void setStringSelfieWithId(String stringSelfieWithId) {
-        this.stringSelfieWithId = stringSelfieWithId;
+    public void setSelfieWithId(String selfieWithId) {
+        this.selfieWithId = selfieWithId;
     }
 
-    public String getStringPhotoId() {
-        return stringPhotoId;
+    public String getPhotoId() {
+        return photoId;
     }
 
-    public void setStringPhotoId(String stringPhotoId) {
-        this.stringPhotoId = stringPhotoId;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
-    public String getStringMatchesId() {
-        return stringMatchesId;
+    public String getMatchesId() {
+        return matchesId;
     }
 
-    public void setStringMatchesId(String stringMatchesId) {
-        this.stringMatchesId = stringMatchesId;
+    public void setMatchesId(String matchesId) {
+        this.matchesId = matchesId;
     }
 
-    public String getStringCAddress() {
-        return stringCAddress;
+    public String getCurrentAddress() {
+        return currentAddress;
     }
 
-    public void setStringCAddress(String stringCAddress) {
-        this.stringCAddress = stringCAddress;
+    public void setCurrentAddress(String currentAddress) {
+        this.currentAddress = currentAddress;
     }
 
-    public String getStringCPostal() {
-        return stringCPostal;
+    public String getCurrentPostal() {
+        return currentPostal;
     }
 
-    public void setStringCPostal(String stringCPostal) {
-        this.stringCPostal = stringCPostal;
+    public void setCurrentPostal(String currentPostal) {
+        this.currentPostal = currentPostal;
     }
 }
