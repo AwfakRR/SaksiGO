@@ -304,7 +304,7 @@ public class CompleteRegistration50Fragment extends Fragment {
 
         }
 
-        if(!uriSelfieWithId.toString().isEmpty() && !uriPhotoId.toString().isEmpty() && !uriSelfieWithId.toString().equals(uriPhotoId.toString())){
+        if(!uriSelfieWithId.toString().isEmpty() && !uriPhotoId.toString().isEmpty()){
             checkNationalIdPhoto = true;
         }else{
             checkNationalIdPhoto = false;
@@ -358,19 +358,19 @@ public class CompleteRegistration50Fragment extends Fragment {
             uploadTaskSelfie = fileRefSelfie.putFile(uriSelfieWithId);
             uploadTaskSelfie.continueWithTask(new Continuation() {
                 @Override
-                public Object then(@NonNull Task task) throws Exception {
+                public Object then(@NonNull Task taskSelfie) throws Exception {
 
-                    if (!task.isSuccessful()){
-                        throw task.getException();
+                    if (!taskSelfie.isSuccessful()){
+                        throw taskSelfie.getException();
                     }
                     return fileRefSelfie.getDownloadUrl();
                 }
             }) .addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()){
-                        Uri downloadUrl = task.getResult();
-                        stringSelfieWithId = downloadUrl.toString();
+                public void onComplete(@NonNull Task<Uri> taskSelfie) {
+                    if (taskSelfie.isSuccessful()){
+                        Uri downloadUrlSelfie = taskSelfie.getResult();
+                        stringSelfieWithId = downloadUrlSelfie.toString();
 
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("selfieWithId", stringSelfieWithId);
