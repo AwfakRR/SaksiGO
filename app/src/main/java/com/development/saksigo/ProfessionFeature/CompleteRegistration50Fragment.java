@@ -250,6 +250,12 @@ public class CompleteRegistration50Fragment extends Fragment {
                 String checkSelfieId = String.valueOf(uriSelfieWithId);
                 Log.i("tag", checkSelfieId);
 
+                String checkStringPhoto = stringPhotoId;
+                Log.i("tagLink", checkStringPhoto);
+
+                String checkStringSelfie = stringSelfieWithId;
+                Log.i("tagLink", checkStringSelfie);
+
                 return;
 
 
