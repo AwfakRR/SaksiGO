@@ -320,7 +320,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImagePhoto() {
 
         if (uriPhotoId != null){
-            final StorageReference fileRef = storageProfilePicsRefSelfie.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+            final StorageReference fileRef = storageProfilePicsRefSelfie.child(mAuth.getCurrentUser().getUid()+ "photoId.jpg");
 
             uploadTask = fileRef.putFile(uriPhotoId);
             uploadTask.continueWithTask(new Continuation() {
@@ -362,7 +362,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImageSelfie(){
 
         if (uriSelfieWithId != null){
-            final StorageReference fileRefSelfie = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+            final StorageReference fileRefSelfie = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ "selfie.jpg");
 
             uploadTaskSelfie = fileRefSelfie.putFile(uriSelfieWithId);
             uploadTaskSelfie.continueWithTask(new Continuation() {
