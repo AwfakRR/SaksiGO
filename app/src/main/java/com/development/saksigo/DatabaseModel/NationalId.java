@@ -2,21 +2,19 @@ package com.development.saksigo.DatabaseModel;
 
 public class NationalId {
 
-    public String id, firstname, lastname, gender, address, postal, selfieWithId, photoId, matchesId, currentAddress, currentPostal;
+    public String id, firstname, lastname, gender, address, postal, matchesId, currentAddress, currentPostal;
 
     public NationalId(){
 
     }
 
-    public NationalId(String id, String firstname, String lastname, String gender, String address, String postal, String selfieWithId, String photoId, String matchesId, String currentAddress, String currentPostal) {
+    public NationalId(String id, String firstname, String lastname, String gender, String address, String postal, String matchesId, String currentAddress, String currentPostal) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.gender = gender;
         this.address = address;
         this.postal = postal;
-        this.selfieWithId = selfieWithId;
-        this.photoId = photoId;
         this.matchesId = matchesId;
         this.currentAddress = currentAddress;
         this.currentPostal = currentPostal;
@@ -68,22 +66,6 @@ public class NationalId {
 
     public void setPostal(String postal) {
         this.postal = postal;
-    }
-
-    public String getSelfieWithId() {
-        return selfieWithId;
-    }
-
-    public void setSelfieWithId(String selfieWithId) {
-        this.selfieWithId = selfieWithId;
-    }
-
-    public String getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(String photoId) {
-        this.photoId = photoId;
     }
 
     public String getMatchesId() {

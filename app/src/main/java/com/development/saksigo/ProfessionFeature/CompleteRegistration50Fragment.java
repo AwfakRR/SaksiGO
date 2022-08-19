@@ -385,7 +385,7 @@ public class CompleteRegistration50Fragment extends Fragment {
 
 
         NationalId nationalId = new NationalId(stringID, stringFirstN, stringLastN, stringSpinnerGender,
-                stringAddress, stringPostal, stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal);
+                stringAddress, stringPostal, stringMatchesId, stringCAddress, stringCPostal);
 
         FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("NationalId")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
