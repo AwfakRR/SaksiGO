@@ -68,7 +68,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     private StorageTask uploadTaskSelfie, uploadTask;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
-    StorageReference storageProfilePicsRef;
+    StorageReference storageProfilePicsRef, storageProfilePicsRefSelfie;
 
 
 
@@ -76,6 +76,7 @@ public class CompleteRegistration50Fragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
 
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner/NationalId");
+        storageProfilePicsRefSelfie = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner/NationalId");
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NationalId");
 
@@ -314,7 +315,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImagePhoto() {
 
         if (uriPhotoId != null){
-            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+            final StorageReference fileRef = storageProfilePicsRefSelfie.child(mAuth.getCurrentUser().getUid()+ ".jpg");
 
             uploadTask = fileRef.putFile(uriPhotoId);
             uploadTask.continueWithTask(new Continuation() {
