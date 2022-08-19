@@ -65,7 +65,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     CheckBox checkBoxMatchesId;
     Uri uriSelfieWithId = Uri.parse(""), uriPhotoId = Uri.parse("");
 
-    private StorageTask uploadTask;
+    private StorageTask uploadTaskSelfie, uploadTask;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
     StorageReference storageProfilePicsRef;
@@ -354,8 +354,8 @@ public class CompleteRegistration50Fragment extends Fragment {
         if (uriSelfieWithId != null){
             final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
 
-            uploadTask = fileRef.putFile(uriSelfieWithId);
-            uploadTask.continueWithTask(new Continuation() {
+            uploadTaskSelfie = fileRef.putFile(uriSelfieWithId);
+            uploadTaskSelfie.continueWithTask(new Continuation() {
                 @Override
                 public Object then(@NonNull Task task) throws Exception {
 
