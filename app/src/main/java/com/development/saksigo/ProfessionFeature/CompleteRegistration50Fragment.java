@@ -323,7 +323,7 @@ public class CompleteRegistration50Fragment extends Fragment {
                         stringPhotoId = downloadUrl.toString();
 
                         HashMap<String, Object> userMap = new HashMap<>();
-                        userMap.put("selfieWithId", stringPhotoId);
+                        userMap.put("photoId", stringPhotoId);
 
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
