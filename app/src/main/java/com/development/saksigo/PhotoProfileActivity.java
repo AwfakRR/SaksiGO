@@ -42,7 +42,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private StorageTask uploadTask;
     private StorageReference storageProfilePicsRef;
     EditText editTextNameProfile;
-    String stringNameProfile;
+    String stringNameProfile, stringNameProfileDatabase;
 
 
     Button buttonSavePicture;
@@ -100,7 +100,6 @@ public class PhotoProfileActivity extends AppCompatActivity {
         }
         else {
             progressDialog.dismiss();
-            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
@@ -130,6 +129,9 @@ public class PhotoProfileActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 uploadProfileImage();
+                if(!stringNameProfile.equals(stringNameProfileDatabase)){
+                uploadFullName();
+            }
             }
         });
 
@@ -145,6 +147,15 @@ public class PhotoProfileActivity extends AppCompatActivity {
 
 
     }
+
+    private void uploadFullName() {
+        stringNameProfile = editTextNameProfile.getText().toString();
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap.put("fullname", stringNameProfile);
+
+        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+    }
+
     private void getUserinfo() {
         databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -154,6 +165,11 @@ public class PhotoProfileActivity extends AppCompatActivity {
                     if (dataSnapshot.hasChild("image")){
                         String image = dataSnapshot.child("image").getValue().toString();
                         Picasso.get().load(image).into(circleImageViewProfilePic);
+                    }
+                    if (dataSnapshot.hasChild("fullname")){
+                        stringNameProfileDatabase = dataSnapshot.child("fullname").getValue().toString();
+                        String fullname = dataSnapshot.child("fullname").getValue().toString();
+                        editTextNameProfile.setText(fullname);
                     }
                 }
             }
