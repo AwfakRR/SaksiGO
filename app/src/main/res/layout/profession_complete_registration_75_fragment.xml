@@ -109,13 +109,13 @@
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Photo of the first page of the account book."
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/editText_addressId"
-        app:layout_constraintStart_toStartOf="@+id/editText_addressId"
-        app:layout_constraintTop_toBottomOf="@+id/editText_addressId" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_bankNo"
+        app:layout_constraintStart_toStartOf="@+id/editText_bankNo"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bankNo" />
 
     <TextView
         android:id="@+id/textView35"
@@ -131,7 +131,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="300dp"
 
         android:layout_marginTop="32dp"
         android:elevation="50dp"
@@ -146,9 +146,9 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/imageView_accountBook"
                 android:layout_width="250dp"
-                android:layout_height="100dp"
+                android:layout_height="250dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +158,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button_selfieWithId"
+        android:id="@+id/button_uploadAccountBook"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -180,14 +180,13 @@
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_regular"
         android:text="Please upload the photo."
         android:textColor="#FF0000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/button_selfieWithId"
-        app:layout_constraintStart_toStartOf="@+id/button_selfieWithId"
-        app:layout_constraintTop_toBottomOf="@+id/button_selfieWithId" />
+        app:layout_constraintEnd_toEndOf="@+id/button_uploadAccountBook"
+        app:layout_constraintStart_toStartOf="@+id/button_uploadAccountBook"
+        app:layout_constraintTop_toBottomOf="@+id/button_uploadAccountBook" />
 
     <Button
         android:id="@+id/button_save75"
@@ -198,16 +197,16 @@
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="-0.01"
         android:text="save and continue"
+
         android:textColor="@color/yellow"
 
         android:textSize="16sp"
-
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView36"
-        app:layout_constraintStart_toStartOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="@+id/button_uploadAccountBook"
+        app:layout_constraintStart_toStartOf="@+id/button_uploadAccountBook"
+        app:layout_constraintTop_toBottomOf="@+id/button_uploadAccountBook"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
         tools:targetApi="lollipop" />
 

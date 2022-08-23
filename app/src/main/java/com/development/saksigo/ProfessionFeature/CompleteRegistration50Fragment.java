@@ -61,7 +61,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     String stringGender, stringID, stringFirstN, stringLastN, stringAddress, stringPostal,
             stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal, stringSpinnerGender, stringCheckboxMatchesId;
     int intSpinnerGender;
-    boolean booleanMatchesId, checkPhotoType, checkNationalIdPhoto;
+    boolean booleanMatchesId, checkPhotoType, checkNationalIdPhoto = false;
     ImageView imageViewSelfieWithId, imageViewIdPhoto;
     CheckBox checkBoxMatchesId;
     Uri uriSelfieWithId = Uri.parse(""), uriPhotoId = Uri.parse("");
@@ -148,6 +148,7 @@ public class CompleteRegistration50Fragment extends Fragment {
             public void onClick(View view) {
                 checkPhotoType = true;
                 CropImage.activity().setAspectRatio(1,1).start(getContext(), CompleteRegistration50Fragment.this);
+
             }
         });
 
@@ -241,18 +242,22 @@ public class CompleteRegistration50Fragment extends Fragment {
 
                 updateData();
 
-                uploadProfileImageSelfie();
+                if(!checkNationalIdPhoto){
 
-                uploadProfileImagePhoto();
+                    uploadProfileImageSelfie();
+
+                    uploadProfileImagePhoto();
+                }
+
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
+                fragmentTransaction.addToBackStack("professionRegistration");
+                fragmentTransaction.commit();
 
                 return;
 
 
 
 
-//                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
-//                fragmentTransaction.addToBackStack("professionRegistration");
-//                fragmentTransaction.commit();
 
 
             }
@@ -287,6 +292,8 @@ public class CompleteRegistration50Fragment extends Fragment {
                         stringSelfieWithId = dataSnapshot.child("selfieWithId").getValue().toString();
                         Picasso.get().load(stringSelfieWithId).into(imageViewSelfieWithId);
                     }
+
+                    if(dataSnapshot.hasChild("photoId") && dataSnapshot.hasChild("selfieWithId")) checkNationalIdPhoto = true;
 
                     if(dataSnapshot.hasChild("currentAddress")) currentAddress = dataSnapshot.child("currentAddress").getValue().toString();
                     if(dataSnapshot.hasChild("currentPostal")) currentPostal = dataSnapshot.child("currentPostal").getValue().toString();

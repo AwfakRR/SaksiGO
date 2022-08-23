@@ -304,7 +304,7 @@
                 app:srcCompat="@drawable/ktp_hand" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/imageView_123"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="184dp"
@@ -357,8 +357,10 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Preview"
                 android:textColor="#494949"
-                app:layout_constraintStart_toStartOf="@+id/imageView9"
-                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                app:layout_constraintEnd_toEndOf="@+id/imageView_123"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageView_123"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_123" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
