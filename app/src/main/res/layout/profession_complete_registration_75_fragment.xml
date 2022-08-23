@@ -90,17 +90,17 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
     <EditText
-        android:id="@+id/editText_addressId"
+        android:id="@+id/editText_bankNo"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edit_text"
-
         android:ems="10"
         android:hint="Input your account number.."
         android:inputType="number"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView33"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@+id/textView33"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
