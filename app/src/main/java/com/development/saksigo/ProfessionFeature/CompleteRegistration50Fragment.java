@@ -47,6 +47,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
@@ -58,7 +59,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     Spinner spinnerGender;
     EditText editTextID, editTextFirstN, editTextLastN, editTextAddress, editTextPostal, editTextCAddress, editTextCPostal;
     String stringGender, stringID, stringFirstN, stringLastN, stringAddress, stringPostal,
-            stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal, stringSpinnerGender;
+            stringSelfieWithId, stringPhotoId, stringMatchesId, stringCAddress, stringCPostal, stringSpinnerGender, stringCheckboxMatchesId;
     int intSpinnerGender;
     boolean booleanMatchesId, checkPhotoType, checkNationalIdPhoto;
     ImageView imageViewSelfieWithId, imageViewIdPhoto;
@@ -70,7 +71,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     DatabaseReference databaseReference;
     StorageReference storageProfilePicsRef, storageProfilePicsRefSelfie;
 
-
+    String id, firstname, lastname, address, postal, currentAddress, currentPostal;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
@@ -106,7 +107,7 @@ public class CompleteRegistration50Fragment extends Fragment {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
 
-//        getUserInfo();
+        getUserInfo();
 
         checkBoxMatchesId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -244,17 +245,6 @@ public class CompleteRegistration50Fragment extends Fragment {
 
                 uploadProfileImagePhoto();
 
-                String checkPhotoId = String.valueOf(uriPhotoId);
-                Log.i("tag", checkPhotoId);
-
-                String checkSelfieId = String.valueOf(uriSelfieWithId);
-                Log.i("tag", checkSelfieId);
-
-
-
-
-
-
                 return;
 
 
@@ -271,25 +261,63 @@ public class CompleteRegistration50Fragment extends Fragment {
         return root;
     }
 
+    private void getUserInfo() {
 
+        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
 
-//    private void getUserInfo() {
-//
-//        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//    }
+                    if(dataSnapshot.hasChild("id")) id = dataSnapshot.child("id").getValue().toString();
+                    if(dataSnapshot.hasChild("firstname")) firstname = dataSnapshot.child("firstname").getValue().toString();
+                    if(dataSnapshot.hasChild("lastname")) lastname = dataSnapshot.child("lastname").getValue().toString();
+                    if(dataSnapshot.hasChild("gender")){
+                        stringGender = dataSnapshot.child("gender").getValue().toString();
+                        intSpinnerGender = Integer.parseInt(stringGender);
+                        spinnerGender.setSelection(intSpinnerGender);
+                    }
+                    if(dataSnapshot.hasChild("address")) address = dataSnapshot.child("address").getValue().toString();
+                    if(dataSnapshot.hasChild("postal")) postal = dataSnapshot.child("postal").getValue().toString();
+
+                    if(dataSnapshot.hasChild("photoId")){
+                        stringPhotoId = dataSnapshot.child("photoId").getValue().toString();
+                        Picasso.get().load(stringPhotoId).into(imageViewIdPhoto);
+                    }
+                    if(dataSnapshot.hasChild("selfieWithId")){
+                        stringSelfieWithId = dataSnapshot.child("selfieWithId").getValue().toString();
+                        Picasso.get().load(stringSelfieWithId).into(imageViewSelfieWithId);
+                    }
+
+                    if(dataSnapshot.hasChild("currentAddress")) currentAddress = dataSnapshot.child("currentAddress").getValue().toString();
+                    if(dataSnapshot.hasChild("currentPostal")) currentPostal = dataSnapshot.child("currentPostal").getValue().toString();
+
+                    if(dataSnapshot.hasChild("matchesId")) {
+                        stringCheckboxMatchesId = dataSnapshot.child("matchesId").getValue().toString();
+                        booleanMatchesId = Boolean.parseBoolean(stringCheckboxMatchesId);
+                    }
+
+                    editTextID.setText(id);
+                    editTextFirstN.setText(firstname);
+                    editTextLastN.setText(lastname);
+
+                    editTextAddress.setText(address);
+                    editTextPostal.setText(postal);
+
+                    checkBoxMatchesId.setChecked(booleanMatchesId);
+
+                    editTextCAddress.setText(currentAddress);
+                    editTextCPostal.setText(currentPostal);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -342,9 +370,6 @@ public class CompleteRegistration50Fragment extends Fragment {
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("photoId", stringPhotoId);
 
-                        String checkStringPhoto = stringPhotoId;
-                        Log.i("tagLinkPhoto", checkStringPhoto);
-
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
 
@@ -384,8 +409,6 @@ public class CompleteRegistration50Fragment extends Fragment {
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("selfieWithId", stringSelfieWithId);
 
-                        String checkStringSelfie = stringSelfieWithId;
-                        Log.i("tagLinkSelfie", checkStringSelfie);
 
 
 

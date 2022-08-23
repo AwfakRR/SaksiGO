@@ -115,7 +115,8 @@ public class CompleteRegistration0Fragment extends Fragment {
         stringSpinner = spinnerProvince.getSelectedItem().toString();
         intProvince = spinnerProvince.getSelectedItemPosition();
 
-        setProgress();
+
+
 
 
 
@@ -234,58 +235,6 @@ public class CompleteRegistration0Fragment extends Fragment {
         });
 
         return root;
-    }
-
-    private void setProgress() {
-
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
-                    String name = dataSnapshot.child("fullname").getValue().toString();
-                    stringEmail = dataSnapshot.child("email").getValue().toString();
-                    stringPhone = dataSnapshot.child("phoneNumber").getValue().toString();
-                    if(dataSnapshot.hasChild("dateOfBirth")) stringDate = dataSnapshot.child("dateOfBirth").getValue().toString();
-                    if(dataSnapshot.hasChild("province"))  stringParseIntProvince = dataSnapshot.child("province").getValue().toString();
-
-                    if(dataSnapshot.hasChild("image")){
-                        stringImage = dataSnapshot.child("image").getValue().toString();
-                        Picasso.get().load(stringImage).into(circleImageViewProfilePic);
-                    }
-
-                    if(!stringEmail.isEmpty() && !stringPhone.isEmpty() && !stringDate.isEmpty() && !stringSpinner.isEmpty() && !stringImage.isEmpty()){
-                        //Textview settings
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-                        ProfessionCompleteRegistrationFragment.imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
-
-                        //Progress bar settings
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(25);
-                        ProfessionCompleteRegistrationFragment.textViewPercent.setText("25%");
-                    }else{
-                        //TextView Settings
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
-
-                        //Progress bar settings
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(0);
-                        ProfessionCompleteRegistrationFragment.textViewPercent.setText("0%");
-                    }
-
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-
     }
 
     private void updateProfile0() {

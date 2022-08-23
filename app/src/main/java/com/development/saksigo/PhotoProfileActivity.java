@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -40,6 +41,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private String myUri = "";
     private StorageTask uploadTask;
     private StorageReference storageProfilePicsRef;
+
 
 
     Button buttonSavePicture;
@@ -115,6 +117,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner");
 
         circleImageViewProfilePic = findViewById(R.id.circleImageView_profilePhotoEdit);
+
         buttonSavePicture = findViewById(R.id.button_savePic);
 
         getUserinfo();
@@ -123,6 +126,9 @@ public class PhotoProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 uploadProfileImage();
+
+
+
             }
         });
 
@@ -148,6 +154,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
                         String image = dataSnapshot.child("image").getValue().toString();
                         Picasso.get().load(image).into(circleImageViewProfilePic);
                     }
+
                 }
             }
 

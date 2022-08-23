@@ -122,24 +122,6 @@ public class CompleteRegistration25Fragment extends Fragment {
                     editTextAboutYou.setText(stringAboutYou);
                     editTextVideoLink.setText(stringVideoLink);
 
-                    if(!stringAboutYou.isEmpty() && !stringParseIntLegalServicesType.isEmpty()){
-                        //Textview settings
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfile.getTypeface(), Typeface.NORMAL);
-                        ProfessionCompleteRegistrationFragment.textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-                        ProfessionCompleteRegistrationFragment.imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-
-                        ProfessionCompleteRegistrationFragment.textViewProfileAccording.setTextColor(Color.parseColor("#FFA806"));
-                        ProfessionCompleteRegistrationFragment.imageViewCheckProfileAccording.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-                        ProfessionCompleteRegistrationFragment.textViewProfileAccording.setTypeface(ProfessionCompleteRegistrationFragment.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
-
-                        //Progress bar settings
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        ProfessionCompleteRegistrationFragment.progressBarProfessionRegistration.setProgress(50);
-                        ProfessionCompleteRegistrationFragment.textViewPercent.setText("50%");
-                    }else{
-
-                    }
-
 
                 }
             }
