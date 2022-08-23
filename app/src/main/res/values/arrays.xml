@@ -87,5 +87,11 @@
         <item>Nusa Tenggara Timur</item>
     </string-array>
 
-
+    <string-array name="id_bank">
+        <item>Select your bank..</item>
+        <item>BCA</item>
+        <item>BNI</item>
+        <item>BRI</item>
+        <item>Mandiri</item>
+    </string-array>
 </resources>
