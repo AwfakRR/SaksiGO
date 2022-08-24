@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -41,7 +42,8 @@ public class PhotoProfileActivity extends AppCompatActivity {
     private StorageTask uploadTask;
     private StorageReference storageProfilePicsRef;
 
-
+    EditText editTextNameProfile;
+    String stringNameProfile;
     Button buttonSavePicture;
     CircleImageView circleImageViewProfilePic;
 
@@ -97,7 +99,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         }
         else {
             progressDialog.dismiss();
-            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
@@ -115,6 +117,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner");
 
         circleImageViewProfilePic = findViewById(R.id.circleImageView_profilePhotoEdit);
+        editTextNameProfile = findViewById(R.id.editText_nameProfile);
         buttonSavePicture = findViewById(R.id.button_savePic);
 
         getUserinfo();
@@ -122,7 +125,21 @@ public class PhotoProfileActivity extends AppCompatActivity {
         buttonSavePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stringNameProfile = editTextNameProfile.getText().toString();
+
+                if(stringNameProfile.isEmpty()){
+                    editTextNameProfile.setError("Please enter your fullname");
+                    editTextNameProfile.requestFocus();
+                    return;
+                }
+
                 uploadProfileImage();
+                uploadData();
+
+                Toast.makeText(PhotoProfileActivity.this, "Preferences Saved!", Toast.LENGTH_LONG).show();
+
+                finish();
+
             }
         });
 
@@ -138,6 +155,15 @@ public class PhotoProfileActivity extends AppCompatActivity {
 
 
     }
+
+    private void uploadData() {
+
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap.put("fullname", stringNameProfile);
+
+        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+    }
+
     private void getUserinfo() {
         databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -147,6 +173,11 @@ public class PhotoProfileActivity extends AppCompatActivity {
                     if (dataSnapshot.hasChild("image")){
                         String image = dataSnapshot.child("image").getValue().toString();
                         Picasso.get().load(image).into(circleImageViewProfilePic);
+                    }
+
+                    if(dataSnapshot.hasChild("fullname")){
+                        stringNameProfile = dataSnapshot.child("fullname").getValue().toString();
+                        editTextNameProfile.setText(stringNameProfile);
                     }
                 }
             }

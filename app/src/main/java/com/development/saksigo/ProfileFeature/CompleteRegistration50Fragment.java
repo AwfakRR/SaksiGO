@@ -1,16 +1,11 @@
-package com.development.saksigo.ProfessionFeature;
+package com.development.saksigo.ProfileFeature;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +15,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,17 +23,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.development.saksigo.DatabaseModel.NationalId;
-import com.development.saksigo.DatabaseModel.Users;
-import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
-import com.development.saksigo.RegisterActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -75,9 +63,9 @@ public class CompleteRegistration50Fragment extends Fragment {
     String id, firstname, lastname, address, postal, currentAddress, currentPostal;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_50_fragment, container, false);
 
-        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);

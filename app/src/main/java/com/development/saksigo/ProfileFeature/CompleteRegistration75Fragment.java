@@ -1,4 +1,4 @@
-package com.development.saksigo.ProfessionFeature;
+package com.development.saksigo.ProfileFeature;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -37,7 +37,6 @@ import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
-import java.net.URI;
 import java.util.HashMap;
 
 public class CompleteRegistration75Fragment extends Fragment {
@@ -58,9 +57,9 @@ public class CompleteRegistration75Fragment extends Fragment {
     int integerBank;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_75_fragment, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_75_fragment, container, false);
 
-        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);

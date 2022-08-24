@@ -1,21 +1,11 @@
-package com.development.saksigo.ProfessionFeature;
-
-import static android.app.Activity.RESULT_OK;
+package com.development.saksigo.ProfileFeature;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -27,33 +17,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
-import com.development.saksigo.IntroductionActivity;
 import com.development.saksigo.LoadingDialog;
-import com.development.saksigo.LoginActivity;
 import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
 import com.development.saksigo.ResetPasswordActivity;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
 
 
 import java.text.ParseException;
@@ -61,7 +39,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -82,9 +59,9 @@ public class CompleteRegistration0Fragment extends Fragment {
     LoadingDialog loadingDialog;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_0_fragment, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_0_fragment, container, false);
 
-        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
 
         p.textViewProfile.setTypeface(p.textViewProfile.getTypeface(), Typeface.BOLD_ITALIC);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);

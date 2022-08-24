@@ -1,7 +1,5 @@
-package com.development.saksigo.ProfessionFeature;
+package com.development.saksigo.ProfileFeature;
 
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.development.saksigo.LoadingDialog;
-import com.development.saksigo.LoginActivity;
 import com.development.saksigo.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -42,9 +38,9 @@ public class CompleteRegistration25Fragment extends Fragment {
     int intLegalServicesType=0;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_25_fragment, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_25_fragment, container, false);
 
-        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(p.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);

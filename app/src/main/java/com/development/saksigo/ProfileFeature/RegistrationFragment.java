@@ -1,4 +1,4 @@
-package com.development.saksigo.ProfessionFeature;
+package com.development.saksigo.ProfileFeature;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.development.saksigo.R;
 

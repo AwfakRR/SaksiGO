@@ -1,16 +1,11 @@
-package com.development.saksigo.ProfessionFeature;
+package com.development.saksigo.ProfileFeature;
 
-import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfessionCompleteRegistrationFragment extends Fragment {
+public class ProfileCompleteRegistrationFragment extends Fragment {
 
     public static ProgressBar progressBarProfessionRegistration;
     public static TextView textViewProfile, textViewProfileAccording, textViewNationalId, textViewBankAccount, textViewPercent;

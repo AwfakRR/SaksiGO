@@ -77,7 +77,7 @@
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="-0.01"
 
-        android:text="save and continue"
+        android:text="@string/confirm"
 
         android:textColor="@color/yellow"
         android:textSize="16sp"
