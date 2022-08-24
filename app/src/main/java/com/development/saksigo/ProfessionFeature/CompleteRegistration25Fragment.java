@@ -44,6 +44,13 @@ public class CompleteRegistration25Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_25_fragment, container, false);
 
+        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+
+        p.textViewProfile.setTypeface(null, Typeface.NORMAL);
+        p.textViewProfileAccording.setTypeface(p.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
+        p.textViewNationalId.setTypeface(null, Typeface.NORMAL);
+        p.textViewBankAccount.setTypeface(null, Typeface.NORMAL);
+
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
 

@@ -3,6 +3,7 @@ package com.development.saksigo.ProfessionFeature;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -58,6 +59,13 @@ public class CompleteRegistration75Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_75_fragment, container, false);
+
+        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+
+        p.textViewProfile.setTypeface(null, Typeface.NORMAL);
+        p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);
+        p.textViewNationalId.setTypeface(null, Typeface.NORMAL);
+        p.textViewBankAccount.setTypeface(p.textViewBankAccount.getTypeface(), Typeface.BOLD_ITALIC);
 
         spinnerBank = root.findViewById(R.id.spinner_bank);
         editBankNo = root.findViewById(R.id.editText_bankNo);

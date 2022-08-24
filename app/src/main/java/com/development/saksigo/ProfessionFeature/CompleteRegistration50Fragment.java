@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -69,15 +70,21 @@ public class CompleteRegistration50Fragment extends Fragment {
     private StorageTask uploadTaskSelfie, uploadTask;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
-    StorageReference storageProfilePicsRef, storageProfilePicsRefSelfie;
+    StorageReference storageProfilePicsRef;
 
     String id, firstname, lastname, address, postal, currentAddress, currentPostal;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_50_fragment, container, false);
 
+        ProfessionCompleteRegistrationFragment p = new ProfessionCompleteRegistrationFragment();
+
+        p.textViewProfile.setTypeface(null, Typeface.NORMAL);
+        p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);
+        p.textViewNationalId.setTypeface(p.textViewNationalId.getTypeface(), Typeface.BOLD_ITALIC);
+        p.textViewBankAccount.setTypeface(null, Typeface.NORMAL);
+
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner/NationalId");
-        storageProfilePicsRefSelfie = FirebaseStorage.getInstance().getReference().child("gs://saksigo-30792.appspot.com/KeyPartner/NationalId");
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NationalId");
 
@@ -242,12 +249,12 @@ public class CompleteRegistration50Fragment extends Fragment {
 
                 updateData();
 
-                if(!checkNationalIdPhoto){
-
+                if(checkNationalIdPhoto){
                     uploadProfileImageSelfie();
 
                     uploadProfileImagePhoto();
                 }
+
 
                 fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
                 fragmentTransaction.addToBackStack("professionRegistration");
@@ -355,7 +362,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImagePhoto() {
 
         if (uriPhotoId != null){
-            final StorageReference fileRef = storageProfilePicsRefSelfie.child(mAuth.getCurrentUser().getUid()+ "photoId.jpg");
+            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ "photoId.jpg");
 
             uploadTask = fileRef.putFile(uriPhotoId);
             uploadTask.continueWithTask(new Continuation() {
@@ -394,29 +401,27 @@ public class CompleteRegistration50Fragment extends Fragment {
     private void uploadProfileImageSelfie(){
 
         if (uriSelfieWithId != null){
-            final StorageReference fileRefSelfie = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ "selfie.jpg");
+            final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ "selfie.jpg");
 
-            uploadTaskSelfie = fileRefSelfie.putFile(uriSelfieWithId);
-            uploadTaskSelfie.continueWithTask(new Continuation() {
+            uploadTask = fileRef.putFile(uriSelfieWithId);
+            uploadTask.continueWithTask(new Continuation() {
                 @Override
-                public Object then(@NonNull Task taskSelfie) throws Exception {
+                public Object then(@NonNull Task task) throws Exception {
 
-                    if (!taskSelfie.isSuccessful()){
-                        throw taskSelfie.getException();
+                    if (!task.isSuccessful()){
+                        throw task.getException();
                     }
-                    return fileRefSelfie.getDownloadUrl();
+                    return fileRef.getDownloadUrl();
                 }
             }) .addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
-                public void onComplete(@NonNull Task<Uri> taskSelfie) {
-                    if (taskSelfie.isSuccessful()){
-                        Uri downloadUrlSelfie = taskSelfie.getResult();
-                        stringSelfieWithId = downloadUrlSelfie.toString();
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()){
+                        Uri downloadUrl = task.getResult();
+                        stringSelfieWithId = downloadUrl.toString();
 
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("selfieWithId", stringSelfieWithId);
-
-
 
 
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
@@ -437,15 +442,18 @@ public class CompleteRegistration50Fragment extends Fragment {
 
     private void updateData() {
 
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap.put("id", stringID);
+        userMap.put("firstname", stringFirstN);
+        userMap.put("lastname", stringLastN);
+        userMap.put("gender", stringSpinnerGender);
+        userMap.put("address", stringAddress);
+        userMap.put("postal", stringPostal);
+        userMap.put("matchesId", stringMatchesId);
+        userMap.put("currentAddress", stringCAddress);
+        userMap.put("currentPostal", stringCPostal);
 
-
-        NationalId nationalId = new NationalId(stringID, stringFirstN, stringLastN, stringSpinnerGender,
-                stringAddress, stringPostal, stringMatchesId, stringCAddress, stringCPostal);
-
-        FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("NationalId")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(nationalId);
-
+        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
     }
 
     private boolean checkPostal(){

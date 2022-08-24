@@ -33,8 +33,11 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
     public static TextView textViewProfile, textViewProfileAccording, textViewNationalId, textViewBankAccount, textViewPercent;
     public static ImageView imageViewCheckProfile, imageViewCheckProfileAccording, imageViewCheckNationalId, imageViewCheckBankAccount;
 
+    int checkProfile=0;
+    String stringCheckProfile;
+
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference0_25, databaseReference50;
+    DatabaseReference databaseReference0_25, databaseReference50, databaseReference75, databaseReference;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_fragment, container, false);
@@ -56,6 +59,9 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         CompleteRegistration0Fragment completeRegistration0Fragment = new CompleteRegistration0Fragment();
+        CompleteRegistration25Fragment completeRegistration25Fragment = new CompleteRegistration25Fragment();
+        CompleteRegistration50Fragment completeRegistration50Fragment = new CompleteRegistration50Fragment();
+        CompleteRegistration75Fragment completeRegistration75Fragment = new CompleteRegistration75Fragment();
         fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration0Fragment);
         fragmentTransaction.addToBackStack("profileRegistration");
         fragmentTransaction.commit();
@@ -63,13 +69,63 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         databaseReference0_25 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
         databaseReference50 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NationalId");
+        databaseReference75 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("BankAccount");
+        databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+
+        stringCheckProfile = String.valueOf(checkProfile);
+        //Progress bar settings
+        progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
+        progressBarProfessionRegistration.setProgress(checkProfile);
+        textViewPercent.setText(stringCheckProfile+"%");
 
         updateProgress();
+
+        textViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration0Fragment);
+                fragmentTransaction.addToBackStack("profileRegistration");
+                fragmentTransaction.commit();
+            }
+        });
+
+        textViewProfileAccording.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration25Fragment);
+                fragmentTransaction.addToBackStack("profileRegistration");
+                fragmentTransaction.commit();
+            }
+        });
+
+        textViewNationalId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration50Fragment);
+                fragmentTransaction.addToBackStack("profileRegistration");
+                fragmentTransaction.commit();
+            }
+        });
+
+        textViewBankAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerCompleteRegistration, completeRegistration75Fragment);
+                fragmentTransaction.addToBackStack("profileRegistration");
+                fragmentTransaction.commit();
+            }
+        });
 
         return root;
     }
 
     private void updateProgress() {
+
+
 
         databaseReference0_25.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -82,76 +138,41 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
                     //if berhasil
                     if(dataSnapshot.hasChild("userId") && dataSnapshot.hasChild("email") && dataSnapshot.hasChild("fullname")
                             && dataSnapshot.hasChild("image") && dataSnapshot.hasChild("dateOfBirth") && dataSnapshot.hasChild("phoneNumber")
-                            && !dataSnapshot.hasChild("province")){
+                            && dataSnapshot.hasChild("province")) {
 
                         //Set Progress
                         //Profile
                         textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-                        textViewProfile.setTypeface(textViewProfile.getTypeface(), Typeface.BOLD_ITALIC);
                         imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
-                        //Profile According
-                        textViewProfileAccording.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewProfileAccording.setTypeface(textViewProfileAccording.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckProfileAccording.setColorFilter(getContext().getResources().getColor(R.color.white));
+                        checkProfile = checkProfile + 15;
 
-                        //NationalId
-                        textViewNationalId.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewNationalId.setTypeface(textViewNationalId.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckNationalId.setColorFilter(getContext().getResources().getColor(R.color.white));
-
-                        //Bank Account
-                        textViewBankAccount.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewBankAccount.setTypeface(textViewBankAccount.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckBankAccount.setColorFilter(getContext().getResources().getColor(R.color.white));
+                        stringCheckProfile = String.valueOf(checkProfile);
 
                         //Progress bar settings
                         progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        progressBarProfessionRegistration.setProgress(25);
-                        textViewPercent.setText("25%");
+                        progressBarProfessionRegistration.setProgress(checkProfile);
+                        textViewPercent.setText(stringCheckProfile+"%");
 
-                    }else{
-
-                        //Profile
-                        textViewProfile.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewProfile.setTypeface(textViewProfile.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.white));
-
-                        //Progress bar settings
-                        progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        progressBarProfessionRegistration.setProgress(0);
-                        textViewPercent.setText("0%");
 
                     }
 
                     if(dataSnapshot.hasChild("aboutYou") && dataSnapshot.hasChild("legalServicesType")){
 
                         //Set Progress
-                        //Profile
-                        textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-                        textViewProfile.setTypeface(textViewProfile.getTypeface(), Typeface.BOLD_ITALIC);
-                        imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
                         //Profile According
                         textViewProfileAccording.setTextColor(Color.parseColor("#FFA806"));
-                        textViewProfileAccording.setTypeface(textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
                         imageViewCheckProfileAccording.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
-                        //NationalId
-                        textViewNationalId.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewNationalId.setTypeface(textViewNationalId.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckNationalId.setColorFilter(getContext().getResources().getColor(R.color.white));
+                        checkProfile = checkProfile + 10;
 
-                        //Bank Account
-                        textViewBankAccount.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewBankAccount.setTypeface(textViewBankAccount.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckBankAccount.setColorFilter(getContext().getResources().getColor(R.color.white));
+                        stringCheckProfile = String.valueOf(checkProfile);
 
                         //Progress bar settings
                         progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        progressBarProfessionRegistration.setProgress(50);
-                        textViewPercent.setText("50%");
-
+                        progressBarProfessionRegistration.setProgress(checkProfile);
+                        textViewPercent.setText(stringCheckProfile+"%");
                     }
                 }
             }
@@ -175,30 +196,19 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
                             && dataSnapshot.hasChild("photoId") && dataSnapshot.hasChild("selfieWithId")){
 
                         //Set Progress
-                        //Profile
-                        textViewProfile.setTextColor(Color.parseColor("#FFA806"));
-                        textViewProfile.setTypeface(textViewProfile.getTypeface(), Typeface.BOLD_ITALIC);
-                        imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
-
-                        //Profile According
-                        textViewProfileAccording.setTextColor(Color.parseColor("#FFA806"));
-                        textViewProfileAccording.setTypeface(textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);
-                        imageViewCheckProfileAccording.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
                         //NationalId
                         textViewNationalId.setTextColor(Color.parseColor("#FFA806"));
-                        textViewNationalId.setTypeface(textViewNationalId.getTypeface(), Typeface.BOLD_ITALIC);
                         imageViewCheckNationalId.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
-                        //Bank Account
-                        textViewBankAccount.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewBankAccount.setTypeface(textViewBankAccount.getTypeface(), Typeface.NORMAL);
-                        imageViewCheckBankAccount.setColorFilter(getContext().getResources().getColor(R.color.white));
+                        checkProfile = checkProfile+25;
+
+                        stringCheckProfile = String.valueOf(checkProfile);
 
                         //Progress bar settings
                         progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
-                        progressBarProfessionRegistration.setProgress(75);
-                        textViewPercent.setText("75%");
+                        progressBarProfessionRegistration.setProgress(checkProfile);
+                        textViewPercent.setText(stringCheckProfile+"%");
 
                     }
 
@@ -211,6 +221,43 @@ public class ProfessionCompleteRegistrationFragment extends Fragment {
             }
         });
 
+        databaseReference75.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Registration 75
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+
+                    if(dataSnapshot.hasChild("accountNumber") && dataSnapshot.hasChild("accountBookPhoto")
+                            && dataSnapshot.hasChild("bankName")){
+
+
+                        //Set Progress
+
+                        //Bank Account
+                        textViewBankAccount.setTextColor(Color.parseColor("#FFA806"));
+                        imageViewCheckBankAccount.setColorFilter(getContext().getResources().getColor(R.color.yellow));
+
+
+                        checkProfile = checkProfile + 50;
+
+                        stringCheckProfile = String.valueOf(checkProfile);
+
+                        //Progress bar settings
+                        progressBarProfessionRegistration.getProgressDrawable().setColorFilter(Color.parseColor("#FFA806"), PorterDuff.Mode.SRC_IN);
+                        progressBarProfessionRegistration.setProgress(checkProfile);
+                        textViewPercent.setText(stringCheckProfile+"%");
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+
+
+            }
+        });
 
     }
 
