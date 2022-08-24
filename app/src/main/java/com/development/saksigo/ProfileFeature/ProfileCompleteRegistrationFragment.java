@@ -67,9 +67,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
         databaseReference75 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("BankAccount");
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
-        if(checkProfile > 100){
-            checkProfile = 100;
-        }
+
 
         stringCheckProfile = String.valueOf(checkProfile);
         //Progress bar settings
