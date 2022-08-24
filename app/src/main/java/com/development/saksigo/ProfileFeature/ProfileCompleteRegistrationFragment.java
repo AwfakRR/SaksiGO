@@ -140,7 +140,13 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
                         textViewProfile.setTextColor(Color.parseColor("#FFA806"));
                         imageViewCheckProfile.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
+
+
                         checkProfile = checkProfile + 15;
+
+                        if(checkProfile < 100){
+                            checkProfile = 100;
+                        }
 
                         stringCheckProfile = String.valueOf(checkProfile);
 
@@ -161,6 +167,10 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
                         imageViewCheckProfileAccording.setColorFilter(getContext().getResources().getColor(R.color.yellow));
 
                         checkProfile = checkProfile + 10;
+
+                        if(checkProfile < 100){
+                            checkProfile = 100;
+                        }
 
                         stringCheckProfile = String.valueOf(checkProfile);
 
