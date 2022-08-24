@@ -32,7 +32,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
     String stringCheckProfile;
 
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference0_25, databaseReference50, databaseReference75, databaseReference;
+    DatabaseReference databaseReference0_25, databaseReference50, databaseReference75;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profession_complete_registration_fragment, container, false);
@@ -65,7 +65,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
         databaseReference0_25 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
         databaseReference50 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NationalId");
         databaseReference75 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("BankAccount");
-        databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+
 
 
 
