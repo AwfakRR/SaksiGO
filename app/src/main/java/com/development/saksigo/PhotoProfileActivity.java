@@ -47,6 +47,8 @@ public class PhotoProfileActivity extends AppCompatActivity {
     Button buttonSavePicture;
     CircleImageView circleImageViewProfilePic;
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -62,10 +64,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         }
     }
     private void uploadProfileImage(){
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Set your profile");
-        progressDialog.setMessage("Please wait while we are setting your data");
-        progressDialog.show();
+
 
         if (imageUri !=null){
             final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
@@ -92,13 +91,15 @@ public class PhotoProfileActivity extends AppCompatActivity {
 
                         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
-                        progressDialog.dismiss();
+
+
                     }
                 }
             });
         }
         else {
-            progressDialog.dismiss();
+
+
 //            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
     }
@@ -111,6 +112,8 @@ public class PhotoProfileActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blue)));
         getSupportActionBar().setTitle("Change Picture");
         getSupportActionBar().setElevation(0);
+
+
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("KeyPartner");
@@ -138,7 +141,9 @@ public class PhotoProfileActivity extends AppCompatActivity {
 
                 Toast.makeText(PhotoProfileActivity.this, "Preferences Saved!", Toast.LENGTH_LONG).show();
 
+
                 finish();
+
 
             }
         });
@@ -162,6 +167,7 @@ public class PhotoProfileActivity extends AppCompatActivity {
         userMap.put("fullname", stringNameProfile);
 
         databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+
     }
 
     private void getUserinfo() {
