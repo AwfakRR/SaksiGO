@@ -67,7 +67,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
         databaseReference75 = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("BankAccount");
         databaseReference = FirebaseDatabase.getInstance("https://saksigo-30792-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
-        if(checkProfile < 100){
+        if(checkProfile > 100){
             checkProfile = 100;
         }
 
@@ -148,7 +148,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
 
                         checkProfile = checkProfile + 15;
 
-                        if(checkProfile < 100){
+                        if(checkProfile > 100){
                             checkProfile = 100;
                         }
 
@@ -172,7 +172,7 @@ public class ProfileCompleteRegistrationFragment extends Fragment {
 
                         checkProfile = checkProfile + 10;
 
-                        if(checkProfile < 100){
+                        if(checkProfile > 100){
                             checkProfile = 100;
                         }
 
