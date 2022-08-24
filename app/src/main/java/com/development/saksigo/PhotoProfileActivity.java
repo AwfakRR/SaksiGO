@@ -142,6 +142,9 @@ public class PhotoProfileActivity extends AppCompatActivity {
                 Toast.makeText(PhotoProfileActivity.this, "Preferences Saved!", Toast.LENGTH_LONG).show();
 
 
+//                Intent intent = new Intent(PhotoProfileActivity.this, HomeActivity.class);
+//                startActivity(intent);
+
                 finish();
 
 
