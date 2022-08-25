@@ -23,6 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.development.saksigo.Fragment.ProfileFragment;
 import com.development.saksigo.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,7 +66,7 @@ public class CompleteRegistration50Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_50_fragment, container, false);
 
-        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
+        ProfileFragment p = new ProfileFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);

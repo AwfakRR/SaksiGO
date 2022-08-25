@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.development.saksigo.Fragment.ProfileFragment;
 import com.development.saksigo.LoadingDialog;
 import com.development.saksigo.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +41,7 @@ public class CompleteRegistration25Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_25_fragment, container, false);
 
-        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
+        ProfileFragment p = new ProfileFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(p.textViewProfileAccording.getTypeface(), Typeface.BOLD_ITALIC);

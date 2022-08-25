@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import com.development.saksigo.Fragment.ProfileFragment;
 import com.development.saksigo.LoadingDialog;
 import com.development.saksigo.PhotoProfileActivity;
 import com.development.saksigo.R;
@@ -61,7 +62,7 @@ public class CompleteRegistration0Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.profile_complete_registration_0_fragment, container, false);
 
-        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
+        ProfileFragment p = new ProfileFragment();
 
         p.textViewProfile.setTypeface(p.textViewProfile.getTypeface(), Typeface.BOLD_ITALIC);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);

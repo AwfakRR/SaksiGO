@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.development.saksigo.Fragment.ProfileFragment;
 import com.development.saksigo.R;
 
 public class CompleteRegistration100Fragment extends Fragment {
@@ -22,7 +23,7 @@ public class CompleteRegistration100Fragment extends Fragment {
 
         buttonConfirm = root.findViewById(R.id.button_save100);
 
-        ProfileCompleteRegistrationFragment p = new ProfileCompleteRegistrationFragment();
+        ProfileFragment p = new ProfileFragment();
 
         p.textViewProfile.setTypeface(null, Typeface.NORMAL);
         p.textViewProfileAccording.setTypeface(null, Typeface.NORMAL);
