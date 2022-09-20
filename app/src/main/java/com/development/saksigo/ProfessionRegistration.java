@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import com.development.saksigo.ProfileFeature.RegistrationFragment;
+import com.development.saksigo.ProfessionFeature.RegistrationFragment;
 
 public class ProfessionRegistration extends AppCompatActivity {
 

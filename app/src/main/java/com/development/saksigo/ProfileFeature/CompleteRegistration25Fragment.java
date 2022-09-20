@@ -57,7 +57,7 @@ public class CompleteRegistration25Fragment extends Fragment {
         editTextVideoLink = (EditText) root.findViewById(R.id.editText_videoLinkProfession);
         spinnerLegalServices = (Spinner) root.findViewById(R.id.spinner_LegalServices);
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.id_advocateType));
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.id_profession_category));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLegalServices.setAdapter(arrayAdapter);
 
@@ -111,8 +111,8 @@ public class CompleteRegistration25Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
 
-                    if(dataSnapshot.hasChild("legalServicesType")){
-                        stringParseIntLegalServicesType = dataSnapshot.child("legalServicesType").getValue().toString();
+                    if(dataSnapshot.hasChild("professionType")){
+                        stringParseIntLegalServicesType = dataSnapshot.child("professionType").getValue().toString();
                         intLegalServicesType = Integer.parseInt(stringParseIntLegalServicesType);
                     }
 
@@ -141,7 +141,7 @@ public class CompleteRegistration25Fragment extends Fragment {
     private void uploadData() {
 
         HashMap<String, Object> userMap = new HashMap<>();
-        userMap.put("legalServicesType", intLegalServicesType);
+        userMap.put("professionType", intLegalServicesType);
         userMap.put("aboutYou", stringAboutYou);
         userMap.put("videoLink", stringVideoLink);
 

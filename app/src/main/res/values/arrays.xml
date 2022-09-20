@@ -12,6 +12,7 @@
         <item>Balance</item>
         <item></item>
         <item>Log out</item>
+
     </string-array>
 
     <array name="id_activityScreenIcon">
@@ -48,6 +49,7 @@
         <item>Select your gender..</item>
         <item>Male</item>
         <item>Female</item>
+
     </string-array>
 
     <string-array name="id_province">
@@ -95,4 +97,24 @@
         <item>Mandiri</item>
         <item>Others</item>
     </string-array>
+
+    <string-array name="id_profession_category">
+
+        <item>Select your specialty..</item>
+        <item>Teacher</item>
+        <item>Government Employee</item>
+        <item>BUMN Employee</item>
+        <item>IT</item>
+        <item>Banker</item>
+        <item>Accountant</item>
+        <item>Medicine</item>
+        <item>Doctor</item>
+        <item>Marketing</item>
+        <item>Graphic Designer</item>
+        <item>Data Analyst</item>
+        <item>Journalist</item>
+        <item>Others</item>
+
+    </string-array>
+
 </resources>

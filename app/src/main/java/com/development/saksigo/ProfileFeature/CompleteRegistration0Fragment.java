@@ -101,11 +101,6 @@ public class CompleteRegistration0Fragment extends Fragment {
         intProvince = spinnerProvince.getSelectedItemPosition();
 
 
-
-
-
-
-
         Intent intent = new Intent(container.getContext(), PhotoProfileActivity.class);
         Intent intentResetPassword = new Intent(container.getContext(), ResetPasswordActivity.class);
 

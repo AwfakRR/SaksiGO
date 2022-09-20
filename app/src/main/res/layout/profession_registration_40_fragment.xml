@@ -13,7 +13,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/roboto_black"
         android:text="Job Description"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,14 +23,13 @@
         android:id="@+id/textView57"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginRight="164dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Job Name"
         android:textColor="#020101"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView56"
+        app:layout_constraintStart_toStartOf="@+id/textView56"
         app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
     <EditText
@@ -44,6 +43,7 @@
         android:inputType="text"
         android:paddingLeft="10dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView57"
         app:layout_constraintStart_toStartOf="@+id/textView57"
         app:layout_constraintTop_toBottomOf="@+id/textView57"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
@@ -52,14 +52,13 @@
         android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginRight="196dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Description"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName10"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName10"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
 
     <EditText
@@ -74,17 +73,17 @@
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView58"
         app:layout_constraintStart_toStartOf="@+id/textView58"
         app:layout_constraintTop_toBottomOf="@+id/textView58"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button_saveProfession40"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="-0.01"
         android:text="Save and Continue"
@@ -92,6 +91,8 @@
         android:textSize="16sp"
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName11"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName11"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName11"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
